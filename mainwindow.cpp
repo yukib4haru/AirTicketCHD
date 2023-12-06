@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 >>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
 
     //让鼠标和行号链接
-    loadData("D:\\study\\sxd\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("E:\\asd\\AirTicketCHD\\jipiaoshuju.txt");
 
 <<<<<<< HEAD
 >>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
@@ -83,13 +83,8 @@ void MainWindow::loadData(const QString &filename)
     {
         auto linedata=stream.readLine().split(" ");
         auto s=new jipiao(linedata[0],linedata[2],linedata[3],linedata[4],linedata[5],linedata[6],linedata[7],linedata[8]);
-        qDebug()<<s->get_price();
         m_jipiao.push_back(s);
-    }/*
-    for(auto s:m_jipiao)
-    {
-        s->disply();
-    }*/
+    }
 }
 
 void MainWindow::on_pushButton_clicked()

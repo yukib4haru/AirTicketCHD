@@ -17,9 +17,11 @@ public:
     QString get_take_city(){return f_take_city;}
     QString get_ar_city(){return f_ar_city;}
     bool get_booked(){return f_be_booked;}
-    int get_sought(){return sought_num;}
-    void ad_sought(){++sought_num;}
-    void ad_booked(){be_booked=1;}
+
+    QString get_remain(){return f_remain;}
+
+    void dev_remain(){f_remain=QString::number(f_remain.toInt()-1);}
+    void add_booked(){++f_be_booked;}
 private:
     QString f_num;          //航班号
     QString f_base_price;   //基础票价
@@ -32,7 +34,7 @@ private:
     QString f_type;         //机型
     QString f_take_city;    //起飞城市
     QString f_ar_city;      //目的地
-    bool f_be_booked;         //是否预订
+    int f_be_booked;         //是否预订
 
     //修正票价参数
     int sought_num;         //卖出票数
