@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include<QFile>
 #include<QKeyEvent>
 #include<QMessageBox>
@@ -7,23 +8,16 @@
 #include<QDebug>
 #include <QTableWidget>
 #include<QTableWidgetItem>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     loadData("D:\\QTProject\\GitHub\\AirTicketCHD\\jipiaoshuju.txt");
-=======
-=======
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
 
     //让鼠标和行号链接
     loadData("D:\\study\\sxd\\AirTicketCHD\\jipiaoshuju.txt");
-
-<<<<<<< HEAD
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
-=======
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
     for(auto s:m_jipiao)
     { //获取行号
         int row=ui->looktable->rowCount();
@@ -118,7 +112,12 @@ void MainWindow::on_pushButton_2_clicked()
 {
     //点击转换页面2
     ui->stackedWidget->setCurrentWidget(ui->page_2);
+
+    //初始化数据
+    user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
+    user data2 = {"2","大阪","東京","03.03.2004","04.03.2004","1554","112960"};
     user data[10] = {data1,data2};
+
     //建立表格
     tableView = new QTableView(ui->page_2);
     tableView->move(0,0);

@@ -11,6 +11,17 @@
 #include <QInputDialog>
 #include <QLineEdit>
 
+typedef struct
+{
+ QString f_num;          //航班号
+ QString f_take_city;    //始发地
+ QString f_ar_city;      //目的地
+ QString f_to_time;      //起飞时间
+ QString f_ar_time;      //到达时间
+ QString f_price;        //票价
+ QString f_money;        //余额
+
+} user;
 
 namespace Ui
 {
@@ -49,9 +60,7 @@ private:
     QStandardItemModel* model;
     QList<jipiao*>m_jipaio;
 
-    //初始化数据
-    user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
-    user data2 = {"2","大阪","東京","03.03.2004","04.03.2004","1554","112960"};
+
 };
 
 #endif // MAINWINDOW_H
