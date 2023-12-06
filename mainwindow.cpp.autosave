@@ -5,16 +5,13 @@
 #include<QMessageBox>
 #include<QTextStream>
 #include<QDebug>
-#include <QTableWidget>
 #include<QTableWidgetItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
-    loadData("D:\\QT\\QT projects\\zuoye\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("D:\\QTProject\\GitHub\\AirTicketCHD\\jipiaoshuju.txt");
     for(auto s:m_jipiao)
     { //获取行号
         int row=ui->looktable->rowCount();
@@ -55,7 +52,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-//获得鼠标行号
 
 //读文件
 void MainWindow::loadData(const QString &filename)
@@ -74,13 +70,12 @@ void MainWindow::loadData(const QString &filename)
     {
         auto linedata=stream.readLine().split(" ");
         auto s=new jipiao(linedata[0],linedata[2],linedata[3],linedata[4],linedata[5],linedata[6],linedata[7],linedata[8]);
-        qDebug()<<s->get_price();
         m_jipiao.push_back(s);
-    }/*
+    }
     for(auto s:m_jipiao)
     {
         s->disply();
-    }*/
+    }
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -135,17 +130,13 @@ void MainWindow::on_pushButton_2_clicked()
         model->setItem(i, 6, new QStandardItem(QString(data[i].f_money)));
 
     }
-    // 设置表格视图数据
-    tableView->setModel(model);
-    // 设置只读模型
-    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableView->setSortingEnabled(true); // 设置tableView的排序功能为启用
-    tableView->setSelectionBehavior(QAbstractItemView::SelectRows); // 设置tableView的选择模式为按行选择
-
-    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); // 设置tableView的水平表头的背景颜色为天蓝色
-
-    // 显示表格
-    tableView->show();
+    
+    tableView->setModel(model);     // 设置表格视图数据
+    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);      // 设置只读模型
+    tableView->setSortingEnabled(true);     // 设置tableView的排序功能为启用
+    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);   // 设置tableView的选择模式为按行选择
+    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}");   // 设置tableView的水平表头的背景颜色为天蓝色
+    tableView->show();      // 显示表格
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -153,27 +144,6 @@ void MainWindow::on_pushButton_3_clicked()
     //点击转换页面3
 
     ui->stackedWidget->setCurrentWidget(ui->page_3);
-    int n=m_jipiao.size();
-    for(int i=0;i<n;i++)
-    {
-        if(1==m_jipiao[i]->get_bool())
-        {
-            auto s=new jipiao;
-            s=m_jipiao[i];
-            int row=ui->looktable->rowCount();
-            ui->looktable->insertRow(row);
-            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
-            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
-            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
-            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
-            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
-            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
-            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
-            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
-            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-
-        }
-    }
 }
 
 
@@ -230,33 +200,3 @@ void MainWindow::on_comboBox_2_activated(const QString &arg1)
         }
     }
 }
-
-void MainWindow::on_pushButton_5_clicked()
-{
-
-    ui->looktable_2->clearContents();
-    ui->looktable_2->setRowCount(0);
-    int n=m_jipiao.size();
-    QString m_time=ui->lineEdit->text();
-
-    for(int i=0;i<n;i++)
-    {
-        if(m_time==m_jipiao[i]->get_to_time())
-        {
-            auto s=new jipiao;
-            s=m_jipiao[i];
-            int row=ui->looktable->rowCount();
-            ui->looktable->insertRow(row);
-            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
-            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
-            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
-            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
-            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
-            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
-            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
-            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
-            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-        }
-    }
-}
-

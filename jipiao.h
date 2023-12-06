@@ -16,6 +16,7 @@ public:
     QString get_type(){return f_type;}
     QString get_take_city(){return f_take_city;}
     QString get_ar_city(){return f_ar_city;}
+
     bool get_bool(){return f_bool;}
     bool get_booked(){return f_be_booked;}
 
@@ -24,7 +25,9 @@ public:
     void set_booked();
 private:
     QString f_num;          //航班号
-    QString f_price;        //票价
+    QString f_base_price;   //基础票价
+    QString f_price;        //修正票价
+    QString f_remain;       //剩余票数
     QString f_to_date;      //起飞日期
     QString f_ar_date;      //到达日期
     QString f_to_time;      //起飞时间
@@ -32,6 +35,7 @@ private:
     QString f_type;         //机型
     QString f_take_city;    //起飞城市
     QString f_ar_city;      //目的地
+
     bool f_bool;            //判断机票是否被卖出
 
     bool f_be_booked;         //是否预订
