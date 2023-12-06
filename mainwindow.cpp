@@ -28,7 +28,6 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
         ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
     }
-
     ui->comboBox->insertItem(0,  "北京");
     ui->comboBox->insertItem(1,  "西安");
     ui->comboBox->insertItem(2,  "太原");
@@ -109,22 +108,7 @@ void MainWindow::on_pushButton_clicked()
 {
     //点击转换页面1
     ui->stackedWidget->setCurrentWidget(ui->page);
-    ui->looktable->clearContents();
-    ui->looktable->setRowCount(0);
-    for(auto s:m_jipiao)
-    { //获取行号
-        int row=ui->looktable->rowCount();
-        ui->looktable->insertRow(row);
-        ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
-        ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
-        ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
-        ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
-        ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
-        ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
-        ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
-        ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
-        ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-    }
+   refresh();
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -242,7 +226,7 @@ void MainWindow::on_comboBox_2_activated(const QString &arg2)
     int n=m_jipiao.size();
     for(int i=0;i<n;++i)
     {
-        if(arg1==m_jipiao[i]->get_ar_city())
+        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
         {
             auto s=new jipiao;
             s=m_jipiao[i];
@@ -384,7 +368,7 @@ void MainWindow::on_comboBox_2_activated(int index)
     int n=m_jipiao.size();
     for(int i=0;i<n;++i)
     {
-        if(arg1==m_jipiao[i]->get_ar_city())
+        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
         {
             auto s=new jipiao;
             s=m_jipiao[i];

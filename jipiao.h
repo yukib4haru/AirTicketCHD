@@ -23,6 +23,7 @@ public:
 
     void dev_remain(){
         f_remain=QString::number(f_remain.toInt()-1);
+        ++sought_num;
         f_price=QString::number(f_base_price.toInt()+sought_num/10*50+tourists_num*10-market_competition*100);
     }
     void add_booked(){++f_be_booked;}
