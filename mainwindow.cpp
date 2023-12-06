@@ -5,25 +5,13 @@
 #include<QMessageBox>
 #include<QTextStream>
 #include<QDebug>
-#include <QTableWidget>
 #include<QTableWidgetItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\QTProject\\GitHub\\AirTicketCHD\\jipiaoshuju.txt");
-=======
-=======
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
-
-    //让鼠标和行号链接
     loadData("E:\\asd\\AirTicketCHD\\jipiaoshuju.txt");
-
-<<<<<<< HEAD
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
-=======
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
     for(auto s:m_jipiao)
     { //获取行号
         int row=ui->looktable->rowCount();
@@ -64,7 +52,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-//获得鼠标行号
 
 //读文件
 void MainWindow::loadData(const QString &filename)
@@ -139,17 +126,13 @@ void MainWindow::on_pushButton_2_clicked()
         model->setItem(i, 6, new QStandardItem(QString(data[i].f_money)));
 
     }
-    // 设置表格视图数据
-    tableView->setModel(model);
-    // 设置只读模型
-    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableView->setSortingEnabled(true); // 设置tableView的排序功能为启用
-    tableView->setSelectionBehavior(QAbstractItemView::SelectRows); // 设置tableView的选择模式为按行选择
-
-    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); // 设置tableView的水平表头的背景颜色为天蓝色
-
-    // 显示表格
-    tableView->show();
+    
+    tableView->setModel(model);     // 设置表格视图数据
+    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);      // 设置只读模型
+    tableView->setSortingEnabled(true);     // 设置tableView的排序功能为启用
+    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);   // 设置tableView的选择模式为按行选择
+    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}");   // 设置tableView的水平表头的背景颜色为天蓝色
+    tableView->show();      // 显示表格
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -212,18 +195,4 @@ void MainWindow::on_comboBox_2_activated(const QString &arg1)
 
         }
     }
-}
-
-void MainWindow::on_pushButton_4_clicked()
-{
-
-    int row = ui->looktable->currentRow();
-
-    // 判断是否有行被选中
-    if (row == -1)
-    {
-        return ;
-        // 删除选中的行 tableWidget->removeRow(row);
-    }
-    qInfo()<<row;
 }
