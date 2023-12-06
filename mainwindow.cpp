@@ -12,8 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
-<<<<<<< HEAD
     loadData("D:\\QTProject\\GitHub\\AirTicketCHD\\jipiaoshuju.txt");
 =======
 =======
