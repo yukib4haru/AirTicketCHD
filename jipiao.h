@@ -7,7 +7,6 @@ class jipiao
 public:
     jipiao();
     jipiao(QString num,QString to_date,QString ar_date,QString to_time,QString dis,QString type,QString take_city,QString ar_city);
-    void disply();
     QString get_num(){return f_num;}
     QString get_price(){return f_price;}
     QString get_to_date(){return f_to_date;}
@@ -18,6 +17,11 @@ public:
     QString get_take_city(){return f_take_city;}
     QString get_ar_city(){return f_ar_city;}
     bool get_bool(){return f_bool;}
+    bool get_booked(){return f_be_booked;}
+
+    int get_sought(){return sought_num;}
+
+    void set_booked();
 private:
     QString f_num;          //航班号
     QString f_price;        //票价
@@ -29,6 +33,14 @@ private:
     QString f_take_city;    //起飞城市
     QString f_ar_city;      //目的地
     bool f_bool;            //判断机票是否被卖出
+
+    bool f_be_booked;         //是否预订
+
+    //修正票价参数
+    int sought_num;         //卖出票数
+    int tourists_num;       //游客数量
+    int market_competition; //市场竞争力
+
 };
 
 #endif // JIPIAO_H
