@@ -27,7 +27,7 @@ SOURCES += main.cpp\
     User.cpp \
         mainwindow.cpp \
     jipiao.cpp \
-    yonghu.cpp
+    yonghu.cpp 
 
 HEADERS  += mainwindow.h \
     User.h \
@@ -38,4 +38,5 @@ FORMS    += mainwindow.ui \
     yonghu.ui
 
 DISTFILES += \
+    background.png \
     jipiaoshuju.txt

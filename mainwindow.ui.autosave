@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>855</width>
-    <height>585</height>
+    <width>793</width>
+    <height>512</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,12 +69,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-
-
-       <number>0</number>
-
-       <number>2</number>
-
+       <number>3</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout">
@@ -178,7 +173,7 @@
          <widget class="QComboBox" name="comboBox_4"/>
         </item>
         <item row="13" column="0">
-         <widget class="QPushButton" name="pushButton_6">
+         <widget class="QPushButton" name="pushButton_4">
           <property name="text">
            <string>购票</string>
           </property>
@@ -205,126 +200,22 @@
        </widget>
       </widget>
       <widget class="QWidget" name="page_3">
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="2" column="2">
-         <widget class="QLineEdit" name="lineEdit_2"/>
-        </item>
-        <item row="2" column="3">
-         <widget class="QLabel" name="label_9">
-          <property name="styleSheet">
-           <string notr="true">font: 12pt &quot;黑体&quot;;</string>
-          </property>
-          <property name="text">
-           <string>航班到达城市：</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_6">
-          <property name="styleSheet">
-           <string notr="true">font: 12pt &quot;黑体&quot;;</string>
-          </property>
-          <property name="text">
-           <string>航班起飞时间：</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="label_7">
-          <property name="styleSheet">
-           <string notr="true">font: 12pt &quot;黑体&quot;;</string>
-          </property>
-          <property name="text">
-           <string>航班起飞城市：</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="styleSheet">
-           <string notr="true">font: 12pt &quot;黑体&quot;;</string>
-          </property>
-          <property name="text">
-           <string>订单信息：</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="5" rowspan="2">
-         <widget class="QPushButton" name="pushButton_5">
-          <property name="text">
-           <string>航班查询</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2" colspan="2">
-         <widget class="QLineEdit" name="lineEdit"/>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="label_8">
-          <property name="styleSheet">
-           <string notr="true">font: 12pt &quot;黑体&quot;;</string>
-          </property>
-          <property name="text">
-           <string>航班号：</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="2" colspan="2">
-         <widget class="QLineEdit" name="lineEdit_3"/>
-        </item>
-        <item row="4" column="0" colspan="6">
-         <widget class="QTableWidget" name="looktable_2">
-          <column>
-           <property name="text">
-            <string>航班号</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>票价</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>起飞日期</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>到达日期</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>起飞时间</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>飞行距离</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>机型</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>起飞城市</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>目的地</string>
-           </property>
-          </column>
-         </widget>
-        </item>
-        <item row="2" column="4">
-         <widget class="QLineEdit" name="lineEdit_4"/>
-        </item>
-       </layout>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>41</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;黑体&quot;;</string>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="page_4">
        <widget class="QTextBrowser" name="textBrowser">

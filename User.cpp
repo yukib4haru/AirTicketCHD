@@ -5,7 +5,8 @@
 #include <QList>
 #include <QRegularExpression>
 
-QFile file("D:\\College\\GitHub\\AirTicketCHD\\User.txt");
+QFile file("D:\\study\\sxd\\AirTicketCHD\\User.txt");
+
 
 User::User(QWidget *parent) : QWidget(parent)
 {
@@ -16,9 +17,9 @@ User::User(QWidget *parent) : QWidget(parent)
  * 0 账号密码正确
  * 1 账号或密码空
  * 2 账号或密码错误
- * 3 不能以username或password来作为账号密码
+ * 3 不能以tel_num或password来作为账号密码
 */
-int User::judgeUsernameAndpassword(UserInfo user)
+int User::judgeTel_numAndPassword(UserInfo user)
 {
     if(user.tel_num.isEmpty() || user.password.isEmpty())  return 1;
     else
@@ -44,14 +45,27 @@ int User::judgeUsernameAndpassword(UserInfo user)
         }
 
         //解析存储
+
         QString coun = (QString)str;// 将str转换为QString
         QString newstr = coun.simplified();//去除新行等空白符
-        QStringList arr = newstr.split(QRegularExpression("(username)|(password)|( )|(:)"));// 使用正则表达式split字符串为QStringList
+        QStringList arr = newstr.split(QRegularExpression("(tel_num)|(password)|( )|(:)"));// 使用正则表达式split字符串为QStringList
+
         //for循环存储list对象
         for (int i = 0; i < arr.length(); ++i)
         {
             UserInfo uc;
             if (i < arr.size()) // 检查i变量是否小于arr对象的长度
+
+                    {
+                        uc.tel_num = arr[i];// 存储tel_num
+                        i = i+3;
+                        if (i < arr.size()) // 检查i变量是否小于arr对象的长度
+                        {
+                            uc.password = arr[i];
+                            storUser.append(uc);// 追加到QList
+                        }
+                    }
+
             {
                 uc.tel_num = arr[i];// 存储tel_num
                 i = i+3;
@@ -61,6 +75,7 @@ int User::judgeUsernameAndpassword(UserInfo user)
                     storUser.append(uc);// 追加到QList
                 }
             }
+
         }
 
         //判断tel_num和password是否一致
@@ -84,7 +99,7 @@ int User::registerUser(UserInfo user)
     if(user.tel_num.isEmpty() || user.password.isEmpty())  return 1;
     else
     {
-        QString n = "username:"+user.tel_num;
+        QString n = "tel_num:"+user.tel_num;
         QString p = "password:"+user.password;
 
         QStringList arr;

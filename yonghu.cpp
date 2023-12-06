@@ -2,12 +2,15 @@
 #include "ui_yonghu.h"
 #include "User.h"
 
+
 yonghu::yonghu(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::yonghu)
 {
     ui->setupUi(this);
     this->setWindowTitle("Login");
+    this->setGeometry(700,250,600,600);
+    this->setFixedSize(600,600);
 
     btnA = new QPushButton(this);
     btnA->setText("登录");// 设置按钮的文本
@@ -33,14 +36,15 @@ yonghu::yonghu(QWidget *parent) :
 
     //注册
     connect(this->btnB,&QPushButton::clicked,[this](){
-        if(this->tel_num_lineEdit->text().isEmpty() || this->password_lineEdit->text().isEmpty()){
-            QMessageBox::critical(this,"警告","tel_num或password不能为空");
-            return;
-        }else {
+        if(this->tel_num_lineEdit->text().isEmpty() || this->password_lineEdit->text().isEmpty())
+        {QMessageBox::critical(this,"警告","tel_num或password不能为空");
+            return;}
+        else{
             UserInfo user = {this->tel_num_lineEdit->text(),this->password_lineEdit->text()};
             User* call = new User();
             int ret = call->registerUser(user);
-            switch (ret) {
+            switch (ret)
+            {
             case 0:
                 QMessageBox::information(this,"信息","注册成功！");
                 break;
@@ -65,13 +69,14 @@ yonghu::yonghu(QWidget *parent) :
             UserInfo user = {this->tel_num_lineEdit->text(),this->password_lineEdit->text()};
             User* call = new User();
 
-            int ret = call->judgeUsernameAndpassword(user);//验证tel_num和password
+            int ret = call->judgeTel_numAndPassword(user);//验证tel_num和password
 
             switch (ret)
             {
             case 0:
             { QMessageBox::information(this,"信息","登录成功！");
                 this->close();
+
 
                 MainWindow *w = new MainWindow;
                 w->show();
