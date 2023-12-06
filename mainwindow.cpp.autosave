@@ -356,11 +356,6 @@ void MainWindow::on_pushButton_6_clicked()
         auto s=new jipiao;
         s=m_jipiao[n];
         f_jipiao.push_back(s);
-        int h=f_jipiao.size();
-        for(int i=0;i<h;i++)
-        {
-            qInfo()<<f_jipiao[i]->get_take_city();
-        }
 
     }
    jp_xiabiao.clear();

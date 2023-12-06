@@ -70,6 +70,8 @@ private:
     QTableView *tableView;
     QStandardItemModel* model;
     QList<jipiao*>m_jipaio;
+    QList<int>jp_xiabiao;
+    QList<jipiao*>f_jipiao;
 
     //初始化数据
     user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
