@@ -1,22 +1,30 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include<QFile>
 #include<QKeyEvent>
 #include<QMessageBox>
 #include<QTextStream>
 #include<QDebug>
 #include<QTableWidgetItem>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\QT\\QT projects\\zuoye\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("E:\\asd\\AirTicketCHD\\jipiaoshuju.txt");
+    ui->comboBox->insertItem(0,  "a");
+    ui->comboBox->insertItem(1,  "b");
+    ui->comboBox->insertItem(2,  "c");
+    ui->comboBox->insertItem(3,  "d");
+
 
     ui->comboBox->insertItem(0,  "北京");
     ui->comboBox->insertItem(1,  "西安");
     ui->comboBox->insertItem(2,  "太原");
     ui->comboBox->insertItem(3,  "成都");
+
     ui->comboBox->insertItem(4,  "e");
     ui->comboBox->insertItem(5,  "f");
     ui->comboBox->insertItem(6,  "g");
@@ -107,7 +115,13 @@ void MainWindow::on_pushButton_2_clicked()
 {
     //点击转换页面2
     ui->stackedWidget->setCurrentWidget(ui->page_2);
-    user data[10] = {data1};
+
+
+    //初始化数据
+    user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
+    user data2 = {"2","大阪","東京","03.03.2004","04.03.2004","1554","112960"};
+    user data[10] = {data1,data2};
+
     //建立表格
     tableView = new QTableView(ui->page_2);
     tableView->move(0,0);

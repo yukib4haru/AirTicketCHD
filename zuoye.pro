@@ -24,11 +24,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
+    User.cpp \
         mainwindow.cpp \
     jipiao.cpp \
     yonghu.cpp
 
 HEADERS  += mainwindow.h \
+    User.h \
     jipiao.h \
     yonghu.h
 
