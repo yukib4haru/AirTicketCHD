@@ -46,7 +46,6 @@ private slots:
     void on_comboBox_2_activated(int index);
 
     void on_pushButton_6_clicked();
-    void on_pushButton_4_clicked();
     void refresh();
 private:
     Ui::MainWindow *ui;
