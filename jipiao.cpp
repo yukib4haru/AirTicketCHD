@@ -20,10 +20,10 @@ jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QStri
     f_base_price=QString::number(f_dis.toInt()/100*100);
 
     //修正参数
-    srand(time(0));
-    sought_num=rand()%70;
-    f_remain=QString::number(100-sought_num);
-    tourists_num=(rand()%5+5)*10000000;
+    //srand(time(0));
+    //sought_num=rand()%70;
+    //f_remain=QString::number(100-sought_num);
+    //tourists_num=(rand()%5+5)*10000000;
 
 }
 

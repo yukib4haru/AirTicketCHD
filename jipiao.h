@@ -36,7 +36,6 @@ private:
     int sought_num;         //卖出票数
     int tourists_num;       //游客数量
     int market_competition; //市场竞争力
-
     bool be_booked;         //是否预订
 };
 
