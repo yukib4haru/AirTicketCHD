@@ -52,7 +52,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_2->insertItem(14, "纽约"); // 出现了5次
     ui->comboBox_2->insertItem(15, "华盛顿"); // 出现了4次
 
-
     // 月
     ui->comboBox_3->insertItem(0,"12");
     // 日
@@ -71,6 +70,7 @@ MainWindow::~MainWindow()
 //刷新
 void MainWindow::refresh()
 {
+    jp_xiabiao.clear();
     QString arg1 = ui->comboBox->currentText();
     QString arg2 = ui->comboBox_2->currentText();
     QString month = ui->comboBox_3->currentText();
@@ -359,8 +359,7 @@ void MainWindow::on_pushButton_6_clicked()
 {
     int row = ui->looktable->currentRow();
     qInfo()<<m_jipiao.size();
-
-
+    qInfo()<<"row:"<<row;
     if (row == -1)
     {
         return ;
@@ -369,15 +368,16 @@ void MainWindow::on_pushButton_6_clicked()
     {  
         refresh();
         int n=jp_xiabiao[row];
-        qInfo()<<"s"<<n;
+        qInfo()<<"n"<<n;
         m_jipiao[n]->dev_remain();
         qInfo()<<m_jipiao[n]->get_remain();
         auto s=new jipiao;
         s=m_jipiao[n];
         f_jipiao.push_back(s);
-       
-
     }
-   jp_xiabiao.clear();
-
+    QMessageBox msgBox;
+    msgBox.setText("购票成功！");
+    msgBox.setWindowTitle("恭喜");
+    msgBox.exec();
+    jp_xiabiao.clear();
 }
