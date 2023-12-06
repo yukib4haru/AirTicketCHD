@@ -152,6 +152,13 @@
           </property>
          </widget>
         </item>
+        <item row="6" column="1">
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="text">
+           <string>购票</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="page_2">
