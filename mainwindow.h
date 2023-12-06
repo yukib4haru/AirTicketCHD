@@ -39,7 +39,6 @@ public:
     //加载数据
     void loadData(const QString& filename);
 
-
 private slots:
     void on_pushButton_clicked();
 
@@ -51,7 +50,12 @@ private slots:
 
     void on_comboBox_2_activated(const QString &arg1);
 
+    void on_comboBox_activated(int index);
+
+    void on_comboBox_2_activated(int index);
+
     void on_pushButton_4_clicked();
+    void refresh();
 
 private:
     Ui::MainWindow *ui;
@@ -60,6 +64,8 @@ private:
     QStandardItemModel* model;
     QList<jipiao*>m_jipaio;
 
+    //初始化数据
+    user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
 
 };
 
