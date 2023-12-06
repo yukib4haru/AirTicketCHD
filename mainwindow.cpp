@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_3->insertItem(0,"12");
     // 日
     ui->comboBox_4->insertItem(0,"所有");
-    for(int i = 6,j = 2; i <= 31; i++)
+    for(int i = 8,j = 2; i <= 31; i++)
     {
         ui->comboBox_4->insertItem(j - 1, QString::number(i));
         j++;
