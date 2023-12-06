@@ -44,6 +44,7 @@ private slots:
     void on_comboBox_2_activated(int index);
 
     void on_pushButton_4_clicked();
+    void refresh();
 
 private:
     Ui::MainWindow *ui;
@@ -54,7 +55,6 @@ private:
 
     //初始化数据
     user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
-    user data2 = {"2","大阪","東京","03.03.2004","04.03.2004","1554","112960"};
 };
 
 #endif // MAINWINDOW_H

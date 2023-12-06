@@ -17,8 +17,8 @@ public:
     QString get_take_city(){return f_take_city;}
     QString get_ar_city(){return f_ar_city;}
     bool get_booked(){return f_be_booked;}
-
     QString get_remain(){return f_remain;}
+
 
     void dev_remain(){
         f_remain=QString::number(f_remain.toInt()-1);
@@ -44,6 +44,7 @@ private:
     int sought_num;         //卖出票数
     int tourists_num;       //游客数量
     int market_competition; //市场竞争力
+    bool be_booked;         //是否预订
 
 };
 
