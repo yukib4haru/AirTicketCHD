@@ -38,4 +38,5 @@ FORMS    += mainwindow.ui \
     yonghu.ui
 
 DISTFILES += \
+    background.png \
     jipiaoshuju.txt

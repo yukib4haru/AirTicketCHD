@@ -2,9 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include"jipiao.h"
-#include"yonghu.h"
-#include<QList>
+#include "jipiao.h"
+#include "yonghu.h"
+#include <QList>
 #include <QTableView>
 #include <QHeaderView>
 #include <QStandardItemModel>
@@ -73,8 +73,6 @@ private:
     QList<int>jp_xiabiao;
     QList<jipiao*>f_jipiao;
 
-    //初始化数据
-    user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
 
 };
 

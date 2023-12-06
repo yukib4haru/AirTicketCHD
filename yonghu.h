@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <QLineEdit>
 #include <QLabel>
+#include <QDebug>
 #include <QtSql/QSqlTableModel>
 
 namespace Ui {

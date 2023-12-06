@@ -19,7 +19,7 @@ public:
 signals:
 
 public slots:
-    int judgeUsernameAndpassword(UserInfo user);
+    int judgeTel_numAndPassword(UserInfo user);
     int registerUser(UserInfo user);
 };
 

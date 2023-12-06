@@ -33,6 +33,9 @@ public:
     {
         f_be_bought++;
     }
+
+    void add_booked(){++f_be_booked;}
+
 private:
     QString f_num;          //航班号
     QString f_base_price;   //基础票价

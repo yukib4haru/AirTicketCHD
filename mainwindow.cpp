@@ -97,6 +97,7 @@ void MainWindow::refresh()
 void MainWindow::loadData(const QString &filename)
 {
 
+
     QFile file (filename);
     //打开文件
     if(!file.open(QIODevice::ReadOnly))
@@ -341,10 +342,12 @@ void MainWindow::on_comboBox_4_activated(int index)
 void MainWindow::on_pushButton_6_clicked()
 {
     int row = ui->looktable->currentRow();
+    qInfo()<<m_jipiao.size();
+
+
     if (row == -1)
     {
         return ;
-
     }
     else
     {  
@@ -356,11 +359,7 @@ void MainWindow::on_pushButton_6_clicked()
         auto s=new jipiao;
         s=m_jipiao[n];
         f_jipiao.push_back(s);
-        int h=f_jipiao.size();
-        for(int i=0;i<h;i++)
-        {
-            qInfo()<<f_jipiao[i]->get_take_city();
-        }
+       
 
     }
    jp_xiabiao.clear();
