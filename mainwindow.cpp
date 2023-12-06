@@ -5,7 +5,6 @@
 #include<QMessageBox>
 #include<QTextStream>
 #include<QDebug>
-#include <QTableWidget>
 #include<QTableWidgetItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -54,7 +53,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-//获得鼠标行号
 
 //读文件
 void MainWindow::loadData(const QString &filename)
@@ -103,7 +101,7 @@ void MainWindow::on_pushButton_2_clicked()
 {
     //点击转换页面2
     ui->stackedWidget->setCurrentWidget(ui->page_2);
-    user data[10] = {data1,data2};
+    user data[10] = {data1};
     //建立表格
     tableView = new QTableView(ui->page_2);
     tableView->move(0,0);
@@ -140,12 +138,20 @@ void MainWindow::on_pushButton_2_clicked()
 
     // 显示表格
     tableView->show();
-}
+    }
+    
+//     tableView->setModel(model);     // 设置表格视图数据
+//     tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);      // 设置只读模型
+//     tableView->setSortingEnabled(true);     // 设置tableView的排序功能为启用
+//     tableView->setSelectionBehavior(QAbstractItemView::SelectRows);   // 设置tableView的选择模式为按行选择
+//     tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}");   // 设置tableView的水平表头的背景颜色为天蓝色
+//     tableView->show();      // 显示表格
+
+// }
 
 void MainWindow::on_pushButton_3_clicked()
 {
     //点击转换页面3
-
     ui->stackedWidget->setCurrentWidget(ui->page_3);
     int n=m_jipiao.size();
     for(int i=0;i<n;i++)
@@ -170,15 +176,15 @@ void MainWindow::on_pushButton_3_clicked()
     }
 }
 
-
 void MainWindow::on_comboBox_activated(const QString &arg1)
 {
+    QString arg2 = ui->comboBox_2->currentText();
     ui->looktable->clearContents();
     ui->looktable->setRowCount(0);
     int n=m_jipiao.size();
     for(int i=0;i<n;++i)
     {
-        if(arg1==m_jipiao[i]->get_take_city())
+        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
         {
             auto s=new jipiao;
             s=m_jipiao[i];
@@ -198,14 +204,43 @@ void MainWindow::on_comboBox_activated(const QString &arg1)
     }
 }
 
-void MainWindow::on_comboBox_2_activated(const QString &arg1)
+void MainWindow::on_comboBox_2_activated(const QString &arg2)
 {
+    QString arg1 = ui->comboBox->currentText(); // 使用索引获取当前选中的文本
     ui->looktable->clearContents();
     ui->looktable->setRowCount(0);
     int n=m_jipiao.size();
     for(int i=0;i<n;++i)
     {
         if(arg1==m_jipiao[i]->get_ar_city())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+        }
+    }
+}
+
+void MainWindow::on_comboBox_activated(int index)
+{
+    QString arg1 = ui->comboBox->itemText(index); // 使用索引获取当前选中的文本
+    QString arg2 = ui->comboBox_2->currentText();
+    ui->looktable->clearContents();
+    ui->looktable->setRowCount(0);
+    int n=m_jipiao.size();
+    for(int i=0;i<n;++i)
+    {
+        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
         {
             auto s=new jipiao;
             s=m_jipiao[i];
@@ -309,7 +344,51 @@ void MainWindow::on_pushButton_5_clicked()
 
 }
 
-void MainWindow::on_pushButton_4_clicked()
+
+void MainWindow::on_comboBox_2_activated(int index)
 {
+    QString arg1 = ui->comboBox->currentText(); // 使用索引获取当前选中的文本
+    QString arg2 = ui->comboBox_2->itemText(index);
+    ui->looktable->clearContents();
+    ui->looktable->setRowCount(0);
+    int n=m_jipiao.size();
+    for(int i=0;i<n;++i)
+    {
+        if(arg1==m_jipiao[i]->get_ar_city())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+        }
+    }
+}
+void MainWindow::on_pushButton_6_clicked()
+{
+
+    int row = ui->looktable->currentRow();
+
+  qInfo()<<m_jipiao.size();
+
+    if (row == -1)
+    {
+        return ;
+
+    }
+    else
+    {
+        m_jipiao[row]->dev_remain();
+        m_jipiao[row]->add_booked();
+    }
+    qInfo()<<m_jipiao[row]->get_remain();
 
 }
