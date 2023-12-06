@@ -5,7 +5,6 @@
 #include<QMessageBox>
 #include<QTextStream>
 #include<QDebug>
-#include <QTableWidget>
 #include<QTableWidgetItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox->insertItem(1,  "西安");
     ui->comboBox->insertItem(2,  "太原");
     ui->comboBox->insertItem(3,  "成都");
+
     ui->comboBox->insertItem(4,  "e");
     ui->comboBox->insertItem(5,  "f");
     ui->comboBox->insertItem(6,  "g");
@@ -86,7 +86,7 @@ void MainWindow::on_pushButton_2_clicked()
 {
     //点击转换页面2
     ui->stackedWidget->setCurrentWidget(ui->page_2);
-    user data[10] = {data1,data2};
+    user data[10] = {data1};
     //建立表格
     tableView = new QTableView(ui->page_2);
     tableView->move(0,0);
@@ -112,17 +112,13 @@ void MainWindow::on_pushButton_2_clicked()
         model->setItem(i, 6, new QStandardItem(QString(data[i].f_money)));
 
     }
-    // 设置表格视图数据
-    tableView->setModel(model);
-    // 设置只读模型
-    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableView->setSortingEnabled(true); // 设置tableView的排序功能为启用
-    tableView->setSelectionBehavior(QAbstractItemView::SelectRows); // 设置tableView的选择模式为按行选择
-
-    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); // 设置tableView的水平表头的背景颜色为天蓝色
-
-    // 显示表格
-    tableView->show();
+    
+    tableView->setModel(model);     // 设置表格视图数据
+    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);      // 设置只读模型
+    tableView->setSortingEnabled(true);     // 设置tableView的排序功能为启用
+    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);   // 设置tableView的选择模式为按行选择
+    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}");   // 设置tableView的水平表头的背景颜色为天蓝色
+    tableView->show();      // 显示表格
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -242,16 +238,22 @@ void MainWindow::on_comboBox_2_activated(int index)
         }
     }
 }
-
 void MainWindow::on_pushButton_4_clicked()
 {
     int row = ui->looktable->currentRow();
 
-    // 判断是否有行被选中
+  qInfo()<<m_jipiao.size();
+
     if (row == -1)
     {
         return ;
-        // 删除选中的行 tableWidget->removeRow(row);
+
     }
-    qInfo()<<row;
+    else
+    {
+        m_jipiao[row]->dev_remain();
+        m_jipiao[row]->add_booked();
+    }
+    qInfo()<<m_jipiao[row]->get_remain();
+
 }
