@@ -29,22 +29,23 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
     }
 
-    ui->comboBox->insertItem(0,  "a");
-    ui->comboBox->insertItem(1,  "b");
-    ui->comboBox->insertItem(2,  "c");
-    ui->comboBox->insertItem(3,  "d");
+    ui->comboBox->insertItem(0,  "北京");
+    ui->comboBox->insertItem(1,  "西安");
+    ui->comboBox->insertItem(2,  "太原");
+    ui->comboBox->insertItem(3,  "成都");
+
     ui->comboBox->insertItem(4,  "e");
     ui->comboBox->insertItem(5,  "f");
     ui->comboBox->insertItem(6,  "g");
     ui->comboBox->insertItem(7,  "h");
 
     //第二表
-    ui->comboBox_2->insertItem(0,  "a");
-    ui->comboBox_2->insertItem(1,  "b");
-    ui->comboBox_2->insertItem(2,  "c");
-    ui->comboBox_2->insertItem(3,  "d");
-    ui->comboBox_2->insertItem(4,  "e");
-    ui->comboBox_2->insertItem(5,  "f");
+    ui->comboBox_2->insertItem(0,  "上海");
+    ui->comboBox_2->insertItem(1,  "西安");
+    ui->comboBox_2->insertItem(2,  "杭州");
+    ui->comboBox_2->insertItem(3,  "广州");
+    ui->comboBox_2->insertItem(4,  "太原");
+    ui->comboBox_2->insertItem(5,  "南昌");
     ui->comboBox_2->insertItem(6,  "g");
     ui->comboBox_2->insertItem(7,  "h");
 }
@@ -52,6 +53,35 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+//刷新
+void MainWindow::refresh()
+{
+    QString arg1 = ui->comboBox->currentText();
+    QString arg2 = ui->comboBox_2->currentText();
+    ui->looktable->clearContents();
+    ui->looktable->setRowCount(0);
+    int n=m_jipiao.size();
+    for(int i=0;i<n;++i)
+    {
+        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+
+        }
+    }
 }
 
 //读文件
@@ -374,7 +404,6 @@ void MainWindow::on_comboBox_2_activated(int index)
 }
 void MainWindow::on_pushButton_6_clicked()
 {
-
     int row = ui->looktable->currentRow();
 
   qInfo()<<m_jipiao.size();
@@ -388,6 +417,7 @@ void MainWindow::on_pushButton_6_clicked()
     {
         m_jipiao[row]->dev_remain();
         m_jipiao[row]->add_booked();
+        refresh();
     }
     qInfo()<<m_jipiao[row]->get_remain();
 
