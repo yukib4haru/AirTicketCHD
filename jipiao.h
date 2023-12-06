@@ -7,7 +7,6 @@ class jipiao
 public:
     jipiao();
     jipiao(QString num,QString to_date,QString ar_date,QString to_time,QString dis,QString type,QString take_city,QString ar_city);
-    void disply();
     QString get_num(){return f_num;}
     QString get_price(){return f_price;}
     QString get_to_date(){return f_to_date;}

@@ -29,7 +29,4 @@ jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QStri
     f_price=QString::number(f_base_price.toInt()+sought_num/10*10+tourists_num*10-market_competition*10);
 }
 
-void jipiao::disply()
-{
-    qInfo()<<f_ar_city<<f_ar_date;
-}
+
