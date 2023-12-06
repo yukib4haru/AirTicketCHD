@@ -5,13 +5,15 @@
 #include<QMessageBox>
 #include<QTextStream>
 #include<QDebug>
+#include <QTableWidget>
 #include<QTableWidgetItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
+    //让鼠标和行号链接
+    loadData("D:\\study\\sxd\\AirTicketCHD\\jipiaoshuju.txt");
     for(auto s:m_jipiao)
     { //获取行号
         int row=ui->looktable->rowCount();
@@ -52,6 +54,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+//获得鼠标行号
 
 //读文件
 void MainWindow::loadData(const QString &filename)
@@ -71,10 +74,6 @@ void MainWindow::loadData(const QString &filename)
         auto linedata=stream.readLine().split(" ");
         auto s=new jipiao(linedata[0],linedata[2],linedata[3],linedata[4],linedata[5],linedata[6],linedata[7],linedata[8]);
         m_jipiao.push_back(s);
-    }
-    for(auto s:m_jipiao)
-    {
-        s->disply();
     }
 }
 
@@ -166,4 +165,18 @@ void MainWindow::on_comboBox_2_activated(const QString &arg1)
 
         }
     }
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+
+    int row = ui->looktable->currentRow();
+
+    // 判断是否有行被选中
+    if (row == -1)
+    {
+        return ;
+        // 删除选中的行 tableWidget->removeRow(row);
+    }
+    qInfo()<<row;
 }

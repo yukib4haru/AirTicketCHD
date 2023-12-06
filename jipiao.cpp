@@ -17,7 +17,4 @@ jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QStri
     f_ar_city=ar_city;
 }
 
-void jipiao::disply()
-{
-    qInfo()<<f_ar_city<<f_ar_date;
-}
+
