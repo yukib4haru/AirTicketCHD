@@ -5,6 +5,7 @@
 #include<QMessageBox>
 #include<QTextStream>
 #include<QDebug>
+#include <QTableWidget>
 #include<QTableWidgetItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
+
+    //让鼠标和行号链接
+    loadData("E:\\asd\\AirTicketCHD\\jipiaoshuju.txt");
 
     ui->comboBox->insertItem(0,  "a");
     ui->comboBox->insertItem(1,  "b");
@@ -37,6 +41,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+//获得鼠标行号
 
 //读文件
 void MainWindow::loadData(const QString &filename)
@@ -56,10 +61,6 @@ void MainWindow::loadData(const QString &filename)
         auto linedata=stream.readLine().split(" ");
         auto s=new jipiao(linedata[0],linedata[2],linedata[3],linedata[4],linedata[5],linedata[6],linedata[7],linedata[8]);
         m_jipiao.push_back(s);
-    }
-    for(auto s:m_jipiao)
-    {
-        s->disply();
     }
 }
 
@@ -89,6 +90,43 @@ void MainWindow::on_pushButton_2_clicked()
 {
     //点击转换页面2
     ui->stackedWidget->setCurrentWidget(ui->page_2);
+    user data[10] = {data1,data2};
+    //建立表格
+    tableView = new QTableView(ui->page_2);
+    tableView->move(0,0);
+    // 设置表格视图大小
+    this->setFixedSize(1600,900);
+    tableView->setFixedSize(1600, 900);
+    // 创建数据模型
+    model = new QStandardItemModel(0,7,this);
+    model->setHorizontalHeaderLabels({"航班号","始发地","目的地","起飞时间","到达时间","票价","余额"});
+
+    // 自适应所有列，让它布满空间
+    tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    // 加载共length行数据，并每行有4列数据
+    for (int i = 0; i < 2; i++)
+    {
+        // 加载数据
+        model->setItem(i, 0, new QStandardItem(QString(data[i].f_num)));
+        model->setItem(i, 1, new QStandardItem(QString(data[i].f_take_city)));
+        model->setItem(i, 2, new QStandardItem(QString(data[i].f_ar_city)));
+        model->setItem(i, 3, new QStandardItem(QString(data[i].f_to_time)));
+        model->setItem(i, 4, new QStandardItem(QString(data[i].f_ar_time)));
+        model->setItem(i, 5, new QStandardItem(QString(data[i].f_price)));
+        model->setItem(i, 6, new QStandardItem(QString(data[i].f_money)));
+
+    }
+    // 设置表格视图数据
+    tableView->setModel(model);
+    // 设置只读模型
+    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tableView->setSortingEnabled(true); // 设置tableView的排序功能为启用
+    tableView->setSelectionBehavior(QAbstractItemView::SelectRows); // 设置tableView的选择模式为按行选择
+
+    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); // 设置tableView的水平表头的背景颜色为天蓝色
+
+    // 显示表格
+    tableView->show();
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -209,3 +247,16 @@ void MainWindow::on_comboBox_2_activated(int index)
     }
 }
 
+void MainWindow::on_pushButton_4_clicked()
+{
+
+    int row = ui->looktable->currentRow();
+
+    // 判断是否有行被选中
+    if (row == -1)
+    {
+        return ;
+        // 删除选中的行 tableWidget->removeRow(row);
+    }
+    qInfo()<<row;
+}

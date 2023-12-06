@@ -25,9 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    jipiao.cpp
+    jipiao.cpp \
+    yonghu.cpp
 
 HEADERS  += mainwindow.h \
-    jipiao.h
+    jipiao.h \
+    yonghu.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    yonghu.ui
+
+DISTFILES += \
+    jipiaoshuju.txt
