@@ -17,7 +17,9 @@ public:
     QString get_type(){return f_type;}
     QString get_take_city(){return f_take_city;}
     QString get_ar_city(){return f_ar_city;}
-    bool get_booked(){return be_booked;}
+    bool get_booked(){return f_be_booked;}
+
+    int get_sought(){return sought_num;}
 
     void set_booked();
 private:
@@ -32,13 +34,13 @@ private:
     QString f_type;         //机型
     QString f_take_city;    //起飞城市
     QString f_ar_city;      //目的地
+    bool f_be_booked;         //是否预订
 
     //修正票价参数
     int sought_num;         //卖出票数
     int tourists_num;       //游客数量
     int market_competition; //市场竞争力
 
-    bool be_booked;         //是否预订
 };
 
 #endif // JIPIAO_H
