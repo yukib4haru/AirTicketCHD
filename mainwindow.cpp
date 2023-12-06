@@ -87,6 +87,7 @@ void MainWindow::refresh()
 void MainWindow::loadData(const QString &filename)
 {
 
+
     QFile file (filename);
     //打开文件
     if(!file.open(QIODevice::ReadOnly))
