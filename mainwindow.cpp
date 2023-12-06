@@ -11,24 +11,25 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\study\\sxd\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
 
-    ui->comboBox->insertItem(0,  "a");
-    ui->comboBox->insertItem(1,  "b");
-    ui->comboBox->insertItem(2,  "c");
-    ui->comboBox->insertItem(3,  "d");
+    ui->comboBox->insertItem(0,  "北京");
+    ui->comboBox->insertItem(1,  "西安");
+    ui->comboBox->insertItem(2,  "太原");
+    ui->comboBox->insertItem(3,  "成都");
+
     ui->comboBox->insertItem(4,  "e");
     ui->comboBox->insertItem(5,  "f");
     ui->comboBox->insertItem(6,  "g");
     ui->comboBox->insertItem(7,  "h");
 
     //第二表
-    ui->comboBox_2->insertItem(0,  "a");
-    ui->comboBox_2->insertItem(1,  "b");
-    ui->comboBox_2->insertItem(2,  "c");
-    ui->comboBox_2->insertItem(3,  "d");
-    ui->comboBox_2->insertItem(4,  "e");
-    ui->comboBox_2->insertItem(5,  "f");
+    ui->comboBox_2->insertItem(0,  "上海");
+    ui->comboBox_2->insertItem(1,  "西安");
+    ui->comboBox_2->insertItem(2,  "杭州");
+    ui->comboBox_2->insertItem(3,  "广州");
+    ui->comboBox_2->insertItem(4,  "太原");
+    ui->comboBox_2->insertItem(5,  "南昌");
     ui->comboBox_2->insertItem(6,  "g");
     ui->comboBox_2->insertItem(7,  "h");
 }
@@ -268,7 +269,6 @@ void MainWindow::on_comboBox_2_activated(int index)
 }
 void MainWindow::on_pushButton_4_clicked()
 {
-
     int row = ui->looktable->currentRow();
 
   qInfo()<<m_jipiao.size();
