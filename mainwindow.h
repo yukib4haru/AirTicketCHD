@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include"jipiao.h"
-#include <QList>
+#include<QList>
 namespace Ui {
 class MainWindow;
 }
