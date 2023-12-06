@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
     for(auto s:m_jipiao)
     { //获取行号
-        int r41412w=ui->looktable->rowCount();
+        int row=ui->looktable->rowCount();
         ui->looktable->insertRow(row);
 
         ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
@@ -27,6 +27,25 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
         ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
     }
+
+    ui->comboBox->insertItem(0,  "a");
+    ui->comboBox->insertItem(1,  "b");
+    ui->comboBox->insertItem(2,  "c");
+    ui->comboBox->insertItem(3,  "d");
+    ui->comboBox->insertItem(4,  "e");
+    ui->comboBox->insertItem(5,  "f");
+    ui->comboBox->insertItem(6,  "g");
+    ui->comboBox->insertItem(7,  "h");
+
+    //第二表
+    ui->comboBox_2->insertItem(0,  "a");
+    ui->comboBox_2->insertItem(1,  "b");
+    ui->comboBox_2->insertItem(2,  "c");
+    ui->comboBox_2->insertItem(3,  "d");
+    ui->comboBox_2->insertItem(4,  "e");
+    ui->comboBox_2->insertItem(5,  "f");
+    ui->comboBox_2->insertItem(6,  "g");
+    ui->comboBox_2->insertItem(7,  "h");
 }
 
 MainWindow::~MainWindow()
@@ -69,7 +88,6 @@ void MainWindow::on_pushButton_clicked()
     { //获取行号
         int row=ui->looktable->rowCount();
         ui->looktable->insertRow(row);
-
         ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
         ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
         ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
@@ -95,3 +113,57 @@ void MainWindow::on_pushButton_3_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_3);
 }
 
+
+void MainWindow::on_comboBox_activated(const QString &arg1)
+{
+    ui->looktable->clearContents();
+    ui->looktable->setRowCount(0);
+    int n=m_jipiao.size();
+    for(int i=0;i<n;++i)
+    {
+        if(arg1==m_jipiao[i]->get_take_city())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+
+        }
+    }
+}
+
+void MainWindow::on_comboBox_2_activated(const QString &arg1)
+{
+    ui->looktable->clearContents();
+    ui->looktable->setRowCount(0);
+    int n=m_jipiao.size();
+    for(int i=0;i<n;++i)
+    {
+        if(arg1==m_jipiao[i]->get_ar_city())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+
+        }
+    }
+}
