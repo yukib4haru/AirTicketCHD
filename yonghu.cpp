@@ -9,30 +9,30 @@ yonghu::yonghu(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Login");
-    this->setGeometry(700,250,600,600);
-    this->setFixedSize(600,600);
+    this->setGeometry(750,300,400,300);
+    this->setFixedSize(400,300);
 
     btnA = new QPushButton(this);
     btnA->setText("登录");// 设置按钮的文本
-    btnA->setGeometry(200, 400, 100, 50);   // 设置按钮的位置和大小
+    btnA->setGeometry(65, 200, 100, 50);   // 设置按钮的位置和大小
     btnA->show();
 
     btnB = new QPushButton(this);
     btnB->setText("注册");// 设置按钮的文本
-    btnB->setGeometry(400, 400, 100, 50);   // 设置按钮的位置和大小
+    btnB->setGeometry(225, 200, 100, 50);   // 设置按钮的位置和大小
     btnB->show();
 
     tel_num = new QLabel(this);
     tel_num->setText("Tel_Num:");
-    tel_num->setGeometry(100, 100, 150, 50);
+    tel_num->setGeometry(50, 45, 68, 25);
     password = new QLabel(this);
     password->setText("PassWord:");
-    password->setGeometry(100, 150, 150, 50);
+    password->setGeometry(50, 105, 68, 25);
 
     tel_num_lineEdit = new QLineEdit(this);
-    tel_num_lineEdit->setGeometry(200, 100, 150, 50);
+    tel_num_lineEdit->setGeometry(160, 45, 170, 30);
     password_lineEdit = new QLineEdit(this);
-    password_lineEdit->setGeometry(200, 150, 150, 50);
+    password_lineEdit->setGeometry(160, 105, 170, 30);
 
     //注册
     connect(this->btnB,&QPushButton::clicked,[this](){
