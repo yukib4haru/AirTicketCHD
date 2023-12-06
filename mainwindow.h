@@ -2,9 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include"jipiao.h"
-#include"yonghu.h"
-#include<QList>
+#include "jipiao.h"
+#include "yonghu.h"
+#include <QList>
 #include <QTableView>
 #include <QHeaderView>
 #include <QStandardItemModel>

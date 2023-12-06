@@ -5,7 +5,7 @@
 #include <QList>
 #include <QRegularExpression>
 
-QFile file("D:\\QTProject\\GitHub\\AirTicketCHD\\User.txt");
+QFile file("D:\\College\\GitHub\\AirTicketCHD\\User.txt");
 
 User::User(QWidget *parent) : QWidget(parent)
 {
@@ -51,12 +51,15 @@ int User::judgeUsernameAndpassword(UserInfo user)
         for (int i = 0; i < arr.length(); ++i)
         {
             UserInfo uc;
-            if(!arr[i].isEmpty())
-            { // 跳过空串
+            if (i < arr.size()) // 检查i变量是否小于arr对象的长度
+            {
                 uc.tel_num = arr[i];// 存储tel_num
                 i = i+3;
-                uc.password = arr[i];
-                storUser.append(uc);// 追加到QList
+                if (i < arr.size()) // 检查i变量是否小于arr对象的长度
+                {
+                    uc.password = arr[i];
+                    storUser.append(uc);// 追加到QList
+                }
             }
         }
 
