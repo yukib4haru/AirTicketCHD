@@ -11,35 +11,35 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\study\\sxd\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
 
     //出发地
-    ui->comboBox->insertItem(0,  "北京");
+    ui->comboBox->insertItem(0,  "所有");
     ui->comboBox->insertItem(1,  "西安");
     ui->comboBox->insertItem(2,  "太原");
     ui->comboBox->insertItem(3,  "成都");
-    ui->comboBox->insertItem(4,  "e");
+    ui->comboBox->insertItem(4,  "北京");
     ui->comboBox->insertItem(5,  "f");
     ui->comboBox->insertItem(6,  "g");
     ui->comboBox->insertItem(7,  "h");
     //到达地
-    ui->comboBox_2->insertItem(0,  "上海");
+    ui->comboBox_2->insertItem(0,  "所有");
     ui->comboBox_2->insertItem(1,  "西安");
     ui->comboBox_2->insertItem(2,  "杭州");
     ui->comboBox_2->insertItem(3,  "广州");
     ui->comboBox_2->insertItem(4,  "太原");
     ui->comboBox_2->insertItem(5,  "南昌");
-    ui->comboBox_2->insertItem(6,  "g");
+    ui->comboBox_2->insertItem(6,  "上海");
     ui->comboBox_2->insertItem(7,  "h");   
     // 月
-    ui->comboBox_3->insertItem(0,  "12");
+    ui->comboBox_3->insertItem(0,"12");
     // 日
-    for(int i = 6,j = 1; i <= 31; i++)
+    ui->comboBox_4->insertItem(0,"所有");
+    for(int i = 6,j = 2; i <= 31; i++)
     {
         ui->comboBox_4->insertItem(j - 1, QString::number(i));
         j++;
     }
-
 }
 
 MainWindow::~MainWindow()
@@ -51,12 +51,23 @@ void MainWindow::refresh()
 {
     QString arg1 = ui->comboBox->currentText();
     QString arg2 = ui->comboBox_2->currentText();
+    QString month = ui->comboBox_3->currentText();
+    QString day = ui->comboBox_4->currentText();
+    QString date;
+    if(day.toInt()<10){date = month+"-0"+day;}
+    else{date = month+"-"+day;}
     ui->looktable->clearContents();
     ui->looktable->setRowCount(0);
     int n=m_jipiao.size();
     for(int i=0;i<n;++i)
     {
-        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
+        bool take_city_flag = 0;
+        bool ar_city_flag = 0;
+        bool to_date_flag = 0;
+        if(arg1=="所有"||arg1==m_jipiao[i]->get_take_city()){take_city_flag=1;}
+        if(arg2=="所有"||arg2==m_jipiao[i]->get_ar_city()){ar_city_flag=1;}
+        if(date=="12-0所有"||date==m_jipiao[i]->get_to_date()){to_date_flag=1;}
+        if(take_city_flag&&ar_city_flag&&to_date_flag)
         {
             auto s=new jipiao;
             s=m_jipiao[i];
@@ -71,7 +82,6 @@ void MainWindow::refresh()
             ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
             ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
             ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-
         }
     }
 }
@@ -151,115 +161,35 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_comboBox_activated(const QString &arg1)
 {
-    QString arg2 = ui->comboBox_2->currentText();
-    ui->looktable->clearContents();
-    ui->looktable->setRowCount(0);
-    int n=m_jipiao.size();
-    for(int i=0;i<n;++i)
-    {
-        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
-        {
-            auto s=new jipiao;
-            s=m_jipiao[i];
-            int row=ui->looktable->rowCount();
-            ui->looktable->insertRow(row);
-            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
-            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
-            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
-            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
-            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
-            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
-            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
-            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
-            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-
-        }
-    }
+    refresh();
 }
 
 void MainWindow::on_comboBox_2_activated(const QString &arg2)
 {
-    QString arg1 = ui->comboBox->currentText(); // 使用索引获取当前选中的文本
-    ui->looktable->clearContents();
-    ui->looktable->setRowCount(0);
-    int n=m_jipiao.size();
-    for(int i=0;i<n;++i)
-    {
-        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
-        {
-            auto s=new jipiao;
-            s=m_jipiao[i];
-            int row=ui->looktable->rowCount();
-            ui->looktable->insertRow(row);
-            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
-            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
-            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
-            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
-            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
-            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
-            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
-            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
-            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-        }
-    }
+    refresh();
 }
 
 void MainWindow::on_comboBox_activated(int index)
 {
-    QString arg1 = ui->comboBox->itemText(index); // 使用索引获取当前选中的文本
-    QString arg2 = ui->comboBox_2->currentText();
-    ui->looktable->clearContents();
-    ui->looktable->setRowCount(0);
-    int n=m_jipiao.size();
-    for(int i=0;i<n;++i)
-    {
-        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
-        {
-            auto s=new jipiao;
-            s=m_jipiao[i];
-            int row=ui->looktable->rowCount();
-            ui->looktable->insertRow(row);
-            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
-            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
-            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
-            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
-            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
-            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
-            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
-            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
-            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-
-        }
-    }
+    refresh();
 }
 
 void MainWindow::on_comboBox_2_activated(int index)
 {
-    QString arg1 = ui->comboBox->currentText(); // 使用索引获取当前选中的文本
-    QString arg2 = ui->comboBox_2->itemText(index);
-    ui->looktable->clearContents();
-    ui->looktable->setRowCount(0);
-    int n=m_jipiao.size();
-    for(int i=0;i<n;++i)
-    {
-        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
-        {
-            auto s=new jipiao;
-            s=m_jipiao[i];
-            int row=ui->looktable->rowCount();
-            ui->looktable->insertRow(row);
-            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
-            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
-            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
-            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
-            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
-            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
-            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
-            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
-            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-        }
-    }
+    refresh();
 }
+
+void MainWindow::on_comboBox_3_activated(int index)
+{
+    refresh();
+}
+
+
+void MainWindow::on_comboBox_4_activated(int index)
+{
+    refresh();
+}
+
 void MainWindow::on_pushButton_4_clicked()
 {
     int row = ui->looktable->currentRow();
@@ -278,5 +208,4 @@ void MainWindow::on_pushButton_4_clicked()
         refresh();
     }
     qInfo()<<m_jipiao[row]->get_remain();
-
 }
