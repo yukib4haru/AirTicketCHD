@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("E:\\asd\\AirTicketCHD\\jipiaoshuju.txt");
     for(auto s:m_jipiao)
     { //获取行号
         int row=ui->looktable->rowCount();
