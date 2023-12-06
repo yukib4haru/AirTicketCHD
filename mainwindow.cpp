@@ -12,18 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\QTProject\\GitHub\\AirTicketCHD\\jipiaoshuju.txt");
-=======
-=======
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
-
-    //让鼠标和行号链接
-    loadData("E:\\asd\\AirTicketCHD\\jipiaoshuju.txt");
-
-<<<<<<< HEAD
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
-=======
->>>>>>> 6606171c7eaa0dca334671d76ce0043e7f172c0b
+    loadData("D:\\study\\sxd\\AirTicketCHD\\jipiaoshuju.txt");
     for(auto s:m_jipiao)
     { //获取行号
         int row=ui->looktable->rowCount();
@@ -113,7 +102,7 @@ void MainWindow::on_pushButton_2_clicked()
 {
     //点击转换页面2
     ui->stackedWidget->setCurrentWidget(ui->page_2);
-    user data[10] = {data1,data2};
+    user data[10] = {data1};
     //建立表格
     tableView = new QTableView(ui->page_2);
     tableView->move(0,0);
@@ -218,17 +207,19 @@ void MainWindow::on_pushButton_4_clicked()
 {
 
     int row = ui->looktable->currentRow();
-  qInfo()<<row;
-    // 判断是否有行被选中
-    /*if (row == -1)
+
+  qInfo()<<m_jipiao.size();
+
+    if (row == -1)
     {
         return ;
 
     }
     else
     {
-        m_jipaio[row]->ad_sought();
-        m_jipaio[row]->ad_booked();
-    }*/
+        m_jipiao[row]->dev_remain();
+        m_jipiao[row]->add_booked();
+    }
+    qInfo()<<m_jipiao[row]->get_remain();
 
 }
