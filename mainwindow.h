@@ -28,7 +28,6 @@ public:
     //加载数据
     void loadData(const QString& filename);
 
-
 private slots:
     void on_pushButton_clicked();
 
@@ -39,6 +38,10 @@ private slots:
     void on_comboBox_activated(const QString &arg1);
 
     void on_comboBox_2_activated(const QString &arg1);
+
+    void on_comboBox_activated(int index);
+
+    void on_comboBox_2_activated(int index);
 
     void on_pushButton_4_clicked();
 

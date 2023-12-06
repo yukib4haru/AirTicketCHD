@@ -138,19 +138,18 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
     //点击转换页面3
-
     ui->stackedWidget->setCurrentWidget(ui->page_3);
 }
 
-
 void MainWindow::on_comboBox_activated(const QString &arg1)
 {
+    QString arg2 = ui->comboBox_2->currentText();
     ui->looktable->clearContents();
     ui->looktable->setRowCount(0);
     int n=m_jipiao.size();
     for(int i=0;i<n;++i)
     {
-        if(arg1==m_jipiao[i]->get_take_city())
+        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
         {
             auto s=new jipiao;
             s=m_jipiao[i];
@@ -170,8 +169,9 @@ void MainWindow::on_comboBox_activated(const QString &arg1)
     }
 }
 
-void MainWindow::on_comboBox_2_activated(const QString &arg1)
+void MainWindow::on_comboBox_2_activated(const QString &arg2)
 {
+    QString arg1 = ui->comboBox->currentText(); // 使用索引获取当前选中的文本
     ui->looktable->clearContents();
     ui->looktable->setRowCount(0);
     int n=m_jipiao.size();
@@ -192,7 +192,63 @@ void MainWindow::on_comboBox_2_activated(const QString &arg1)
             ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
             ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
             ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+        }
+    }
+}
 
+void MainWindow::on_comboBox_activated(int index)
+{
+    QString arg1 = ui->comboBox->itemText(index); // 使用索引获取当前选中的文本
+    QString arg2 = ui->comboBox_2->currentText();
+    ui->looktable->clearContents();
+    ui->looktable->setRowCount(0);
+    int n=m_jipiao.size();
+    for(int i=0;i<n;++i)
+    {
+        if(arg1==m_jipiao[i]->get_take_city()&&arg2==m_jipiao[i]->get_ar_city())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+
+        }
+    }
+}
+
+void MainWindow::on_comboBox_2_activated(int index)
+{
+    QString arg1 = ui->comboBox->currentText(); // 使用索引获取当前选中的文本
+    QString arg2 = ui->comboBox_2->itemText(index);
+    ui->looktable->clearContents();
+    ui->looktable->setRowCount(0);
+    int n=m_jipiao.size();
+    for(int i=0;i<n;++i)
+    {
+        if(arg1==m_jipiao[i]->get_ar_city())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
         }
     }
 }
