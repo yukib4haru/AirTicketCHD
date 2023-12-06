@@ -17,77 +17,41 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //出发地
     ui->comboBox->insertItem(0,  "所有");
-    ui->comboBox->insertItem(1, "北京"); // 出现了2次
-    ui->comboBox->insertItem(2, "上海"); // 出现了3次
-    ui->comboBox->insertItem(3, "太原"); // 出现了2次
-    ui->comboBox->insertItem(4, "西安"); // 出现了3次
-    ui->comboBox->insertItem(5, "杭州"); // 出现了1次
-    ui->comboBox->insertItem(6, "广州"); // 出现了2次
-    ui->comboBox->insertItem(7, "成都"); // 出现了1次
-    ui->comboBox->insertItem(8, "南昌"); // 出现了1次
-    ui->comboBox->insertItem(9, "深圳"); // 出现了1次
-    ui->comboBox->insertItem(10, "香港"); // 出现了1次
-    ui->comboBox->insertItem(11, "台北"); // 出现了1次
-    ui->comboBox->insertItem(12, "首尔"); // 出现了1次
-    ui->comboBox->insertItem(13, "东京"); // 出现了1次
-    ui->comboBox->insertItem(14, "新加坡"); // 出现了1次
-    ui->comboBox->insertItem(15, "曼谷"); // 出现了1次
-    ui->comboBox->insertItem(16, "吉隆坡"); // 出现了1次
-    ui->comboBox->insertItem(17, "孟买"); // 出现了1次
-    ui->comboBox->insertItem(18, "迪拜"); // 出现了1次
-    ui->comboBox->insertItem(19, "伦敦"); // 出现了1次
-    ui->comboBox->insertItem(20, "巴黎"); // 出现了1次
-    ui->comboBox->insertItem(21, "纽约"); // 出现了1次
-    ui->comboBox->insertItem(22, "洛杉矶"); // 出现了1次
-    ui->comboBox->insertItem(23, "旧金山"); // 出现了1次
-    ui->comboBox->insertItem(24, "夏威夷"); // 出现了1次
-    ui->comboBox->insertItem(25, "墨西哥城"); // 出现了1次
-    ui->comboBox->insertItem(26, "多伦多"); // 出现了1次
-    ui->comboBox->insertItem(27, "温哥华"); // 出现了1次
-    ui->comboBox->insertItem(28, "西雅图"); // 出现了1次
-    ui->comboBox->insertItem(29, "柏林"); // 出现了1次
-    ui->comboBox->insertItem(30, "阿姆斯特丹"); // 出现了1次
-    ui->comboBox->insertItem(31, "巴塞罗那"); // 出现了1次
-    ui->comboBox->insertItem(32, "罗马"); // 出现了1次
-    ui->comboBox->insertItem(33, "雅典"); // 出现了1次
-    ui->comboBox->insertItem(34, "开罗"); // 出现了1次
+    ui->comboBox->insertItem(1, "北京"); // 出现了11次
+    ui->comboBox->insertItem(2, "上海"); // 出现了5次
+    ui->comboBox->insertItem(3, "太原"); // 出现了3次
+    ui->comboBox->insertItem(4, "西安"); // 出现了4次
+    ui->comboBox->insertItem(5, "杭州"); // 出现了3次
+    ui->comboBox->insertItem(6, "广州"); // 出现了5次
+    ui->comboBox->insertItem(7, "成都"); // 出现了2次
+    ui->comboBox->insertItem(8, "南昌"); // 出现了2次
+    ui->comboBox->insertItem(9, "深圳"); // 出现了4次
+    ui->comboBox->insertItem(10, "香港"); // 出现了4次
+    ui->comboBox->insertItem(11, "台北"); // 出现了4次
+    ui->comboBox->insertItem(12, "东京"); // 出现了5次
+    ui->comboBox->insertItem(13, "巴黎"); // 出现了4次
+    ui->comboBox->insertItem(14, "纽约"); // 出现了5次
+    ui->comboBox->insertItem(15, "华盛顿"); // 出现了4次
+
 
     //到达地
     ui->comboBox_2->insertItem(0,  "所有");
-    ui->comboBox_2->insertItem(1, "北京"); // 出现了2次
-    ui->comboBox_2->insertItem(2, "上海"); // 出现了3次
-    ui->comboBox_2->insertItem(3, "太原"); // 出现了2次
-    ui->comboBox_2->insertItem(4, "西安"); // 出现了3次
-    ui->comboBox_2->insertItem(5, "杭州"); // 出现了1次
-    ui->comboBox_2->insertItem(6, "广州"); // 出现了2次
-    ui->comboBox_2->insertItem(7, "成都"); // 出现了1次
-    ui->comboBox_2->insertItem(8, "南昌"); // 出现了1次
-    ui->comboBox_2->insertItem(9, "深圳"); // 出现了1次
-    ui->comboBox_2->insertItem(10, "香港"); // 出现了1次
-    ui->comboBox_2->insertItem(11, "台北"); // 出现了1次
-    ui->comboBox_2->insertItem(12, "首尔"); // 出现了1次
-    ui->comboBox_2->insertItem(13, "东京"); // 出现了1次
-    ui->comboBox_2->insertItem(14, "新加坡"); // 出现了1次
-    ui->comboBox_2->insertItem(15, "曼谷"); // 出现了1次
-    ui->comboBox_2->insertItem(16, "吉隆坡"); // 出现了1次
-    ui->comboBox_2->insertItem(17, "孟买"); // 出现了1次
-    ui->comboBox_2->insertItem(18, "迪拜"); // 出现了1次
-    ui->comboBox_2->insertItem(19, "伦敦"); // 出现了1次
-    ui->comboBox_2->insertItem(20, "巴黎"); // 出现了1次
-    ui->comboBox_2->insertItem(21, "纽约"); // 出现了1次
-    ui->comboBox_2->insertItem(22, "洛杉矶"); // 出现了1次
-    ui->comboBox_2->insertItem(23, "旧金山"); // 出现了1次
-    ui->comboBox_2->insertItem(24, "夏威夷"); // 出现了1次
-    ui->comboBox_2->insertItem(25, "墨西哥城"); // 出现了1次
-    ui->comboBox_2->insertItem(26, "多伦多"); // 出现了1次
-    ui->comboBox_2->insertItem(27, "温哥华"); // 出现了1次
-    ui->comboBox_2->insertItem(28, "西雅图"); // 出现了1次
-    ui->comboBox_2->insertItem(29, "柏林"); // 出现了1次
-    ui->comboBox_2->insertItem(30, "阿姆斯特丹"); // 出现了1次
-    ui->comboBox_2->insertItem(31, "巴塞罗那"); // 出现了1次
-    ui->comboBox_2->insertItem(32, "罗马"); // 出现了1次
-    ui->comboBox_2->insertItem(33, "雅典"); // 出现了1次
-    ui->comboBox_2->insertItem(34, "开罗"); // 出现了1次
+    ui->comboBox_2->insertItem(1, "北京"); // 出现了11次
+    ui->comboBox_2->insertItem(2, "上海"); // 出现了5次
+    ui->comboBox_2->insertItem(3, "太原"); // 出现了3次
+    ui->comboBox_2->insertItem(4, "西安"); // 出现了4次
+    ui->comboBox_2->insertItem(5, "杭州"); // 出现了3次
+    ui->comboBox_2->insertItem(6, "广州"); // 出现了5次
+    ui->comboBox_2->insertItem(7, "成都"); // 出现了2次
+    ui->comboBox_2->insertItem(8, "南昌"); // 出现了2次
+    ui->comboBox_2->insertItem(9, "深圳"); // 出现了4次
+    ui->comboBox_2->insertItem(10, "香港"); // 出现了4次
+    ui->comboBox_2->insertItem(11, "台北"); // 出现了4次
+    ui->comboBox_2->insertItem(12, "东京"); // 出现了5次
+    ui->comboBox_2->insertItem(13, "巴黎"); // 出现了4次
+    ui->comboBox_2->insertItem(14, "纽约"); // 出现了5次
+    ui->comboBox_2->insertItem(15, "华盛顿"); // 出现了4次
+
 
     // 月
     ui->comboBox_3->insertItem(0,"12");
