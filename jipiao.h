@@ -27,6 +27,8 @@ public:
         ++sought_num;
         f_price=QString::number(f_base_price.toInt()+sought_num/10*50+tourists_num*10-market_competition*100);
         f_be_booked++;
+    }
+
     void be_bought()
     {
         f_be_bought++;

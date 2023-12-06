@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("E:\\asd\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("D:\\QT\\QT projects\\zuoye\\AirTicketCHD\\jipiaoshuju.txt");
     ui->comboBox->insertItem(0,  "a");
     ui->comboBox->insertItem(1,  "b");
     ui->comboBox->insertItem(2,  "c");
@@ -418,7 +418,6 @@ void MainWindow::on_pushButton_6_clicked()
     else
     {
         m_jipiao[row]->dev_remain();
-        m_jipiao[row]->add_booked();
         refresh();
     }
     qInfo()<<m_jipiao[row]->get_remain();
