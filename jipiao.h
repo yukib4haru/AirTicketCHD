@@ -17,6 +17,7 @@ public:
     QString get_type(){return f_type;}
     QString get_take_city(){return f_take_city;}
     QString get_ar_city(){return f_ar_city;}
+    bool get_bool(){return f_bool;}
 private:
     QString f_num;          //航班号
     QString f_price;        //票价
@@ -27,6 +28,7 @@ private:
     QString f_type;         //机型
     QString f_take_city;    //起飞城市
     QString f_ar_city;      //目的地
+    bool f_bool;            //判断机票是否被卖出
 };
 
 #endif // JIPIAO_H

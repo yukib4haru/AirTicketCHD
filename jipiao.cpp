@@ -15,6 +15,7 @@ jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QStri
     f_type=type;
     f_take_city=take_city;
     f_ar_city=ar_city;
+    f_bool=0;
 }
 
 void jipiao::disply()

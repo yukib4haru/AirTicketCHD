@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("D:\\QT\\QT projects\\zuoye\\AirTicketCHD\\jipiaoshuju.txt");
     for(auto s:m_jipiao)
     { //获取行号
         int row=ui->looktable->rowCount();
@@ -111,6 +111,27 @@ void MainWindow::on_pushButton_3_clicked()
     //点击转换页面3
 
     ui->stackedWidget->setCurrentWidget(ui->page_3);
+    int n=m_jipiao.size();
+    for(int i=0;i<n;i++)
+    {
+        if(1==m_jipiao[i]->get_bool())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+
+        }
+    }
 }
 
 
@@ -164,6 +185,34 @@ void MainWindow::on_comboBox_2_activated(const QString &arg1)
             ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
             ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
 
+        }
+    }
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    ui->looktable_2->clearContents();
+    ui->looktable_2->setRowCount(0);
+    int n=m_jipiao.size();
+    QString m_time=ui->lineEdit->text();
+
+    for(int i=0;i<n;i++)
+    {
+        if(m_time==m_jipiao[i]->get_to_time())
+        {
+            auto s=new jipiao;
+            s=m_jipiao[i];
+            int row=ui->looktable->rowCount();
+            ui->looktable->insertRow(row);
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
+            ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
+            ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
+            ui->looktable->setItem(row,4,new QTableWidgetItem(s->get_to_time()));
+            ui->looktable->setItem(row,5,new QTableWidgetItem(s->get_dis()));
+            ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
+            ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
+            ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
         }
     }
 }
