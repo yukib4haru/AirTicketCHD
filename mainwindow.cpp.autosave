@@ -211,6 +211,7 @@ void MainWindow::on_pushButton_4_clicked()
         return ;
         // 删除选中的行 tableWidget->removeRow(row);
     }
-    m_jipaio[row]->
+    m_jipaio[row]->be_booked==1;
+    
     qInfo()<<row;
 }
