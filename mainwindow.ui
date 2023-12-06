@@ -73,7 +73,7 @@
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0" rowspan="3">
+        <item row="0" column="0" rowspan="5">
          <widget class="QLabel" name="label">
           <property name="styleSheet">
            <string notr="true">font: 14pt &quot;黑体&quot;;</string>
@@ -83,20 +83,7 @@
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>出发城市</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2" rowspan="2">
-         <widget class="QComboBox" name="comboBox_2"/>
-        </item>
-        <item row="3" column="0" colspan="2">
-         <widget class="QComboBox" name="comboBox"/>
-        </item>
-        <item row="4" column="0" colspan="3">
+        <item row="12" column="0" colspan="3">
          <widget class="QTableWidget" name="looktable">
           <column>
            <property name="text">
@@ -145,10 +132,23 @@
           </column>
          </widget>
         </item>
-        <item row="1" column="2">
+        <item row="8" column="0">
+         <widget class="QComboBox" name="comboBox_2"/>
+        </item>
+        <item row="6" column="0">
+         <widget class="QComboBox" name="comboBox"/>
+        </item>
+        <item row="7" column="0">
          <widget class="QLabel" name="label_5">
           <property name="text">
            <string>目的地</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>出发城市</string>
           </property>
          </widget>
         </item>
