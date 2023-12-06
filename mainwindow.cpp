@@ -209,12 +209,17 @@ void MainWindow::on_pushButton_4_clicked()
 {
 
     int row = ui->looktable->currentRow();
-
+  qInfo()<<row;
     // 判断是否有行被选中
-    if (row == -1)
+    /*if (row == -1)
     {
         return ;
-        // 删除选中的行 tableWidget->removeRow(row);
+
     }
-    qInfo()<<row;
+    else
+    {
+        m_jipaio[row]->ad_sought();
+        m_jipaio[row]->ad_booked();
+    }*/
+
 }

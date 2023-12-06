@@ -75,8 +75,13 @@ void MainWindow::loadData(const QString &filename)
     {
         auto linedata=stream.readLine().split(" ");
         auto s=new jipiao(linedata[0],linedata[2],linedata[3],linedata[4],linedata[5],linedata[6],linedata[7],linedata[8]);
+        qDebug()<<s->get_price();
         m_jipiao.push_back(s);
-    }
+    }/*
+    for(auto s:m_jipiao)
+    {
+        s->disply();
+    }*/
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -204,14 +209,17 @@ void MainWindow::on_pushButton_4_clicked()
 {
 
     int row = ui->looktable->currentRow();
-
+  qInfo()<<row;
     // 判断是否有行被选中
     if (row == -1)
     {
         return ;
-        // 删除选中的行 tableWidget->removeRow(row);
+
     }
-    m_jipaio[row]->be_booked==1;
-    
-    qInfo()<<row;
+    else
+    {
+        m_jipaio[row]->ad_sought();
+        m_jipaio[row]->ad_booked();
+    }
+
 }

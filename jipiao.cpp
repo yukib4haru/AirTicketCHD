@@ -1,5 +1,6 @@
 #include "jipiao.h"
 #include<QDebug>
+#include<ctime>
 jipiao::jipiao()
 {
 

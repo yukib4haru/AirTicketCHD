@@ -18,8 +18,7 @@ public:
     QString get_ar_city(){return f_ar_city;}
     bool get_booked(){return f_be_booked;}
     int get_sought(){return sought_num;}
-    void ad_sought(){++sought_num;}
-    void ad_booked(){be_booked=1;}
+  
 private:
     QString f_num;          //航班号
     QString f_base_price;   //基础票价
