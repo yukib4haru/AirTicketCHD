@@ -2,9 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include"jipiao.h"
-#include<QList>
-namespace Ui {
+#include "jipiao.h"
+#include <QList>
+namespace Ui
+{
 class MainWindow;
 }
 
@@ -29,7 +30,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QList<jipiao*>m_jipiao;
+    QList<jipiao*> m_jipiao;
 };
 
 #endif // MAINWINDOW_H
