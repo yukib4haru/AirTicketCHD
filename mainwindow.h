@@ -70,6 +70,8 @@ private:
     QTableView *tableView;
     QStandardItemModel* model;
     QList<jipiao*>m_jipaio;
+    QList<int>jp_xiabiao;
+    QList<jipiao*>f_jipiao;
 
 
 };
