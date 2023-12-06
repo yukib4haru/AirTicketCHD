@@ -355,7 +355,7 @@
          <string>航班到达城市：</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="pushButton_5">
         <property name="geometry">
          <rect>
           <x>620</x>

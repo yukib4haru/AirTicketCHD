@@ -34,3 +34,6 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     yonghu.ui
+
+DISTFILES += \
+    jipiaoshuju.txt
