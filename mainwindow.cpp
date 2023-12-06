@@ -78,3 +78,8 @@ void MainWindow::on_pushButton_3_clicked()
      ui->stackedWidget->setCurrentWidget(ui->page_3);
 }
 
+
+void MainWindow::on_comboBox_activated(const QString &arg1)
+{
+
+}

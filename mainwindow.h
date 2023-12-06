@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_comboBox_activated(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     QList<jipiao*>m_jipiao;

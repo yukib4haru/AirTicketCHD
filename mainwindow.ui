@@ -84,6 +84,9 @@
          </widget>
         </item>
         <item>
+         <widget class="QComboBox" name="comboBox"/>
+        </item>
+        <item>
          <widget class="QTableWidget" name="looktable">
           <column>
            <property name="text">
