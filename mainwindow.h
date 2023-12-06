@@ -2,9 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include"jipiao.h"
-#include<QList>
-namespace Ui {
+#include "jipiao.h"
+#include <QList>
+namespace Ui
+{
 class MainWindow;
 }
 
@@ -27,9 +28,13 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_comboBox_activated(const QString &arg1);
+
+    void on_comboBox_2_activated(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
-    QList<jipiao*>m_jipiao;
+    QList<jipiao*> m_jipiao;
 };
 
 #endif // MAINWINDOW_H

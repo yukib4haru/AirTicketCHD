@@ -1,5 +1,10 @@
 #include "jipiao.h"
 #include<QDebug>
+jipiao::jipiao()
+{
+
+}
+
 jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QString dis,QString type,QString take_city,QString ar_city)
 {
     //基础属性
