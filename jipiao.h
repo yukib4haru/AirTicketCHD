@@ -26,7 +26,14 @@ public:
         f_remain=QString::number(f_remain.toInt()-1);
         ++sought_num;
         f_price=QString::number(f_base_price.toInt()+sought_num/10*50+tourists_num*10-market_competition*100);
+        f_be_booked++;
     }
+
+    void be_bought()
+    {
+        f_be_bought++;
+    }
+
     void add_booked(){++f_be_booked;}
 
 private:
@@ -41,13 +48,13 @@ private:
     QString f_type;         //机型
     QString f_take_city;    //起飞城市
     QString f_ar_city;      //目的地
-    int f_be_booked;         //是否预订
+    int f_be_booked;        //是否预订
+    int f_be_bought;        //是否购买
 
     //修正票价参数
     int sought_num;         //卖出票数
     int tourists_num;       //游客数量
     int market_competition; //市场竞争力
-    bool be_booked;         //是否预订
 
 };
 
