@@ -18,7 +18,12 @@ public:
     QString get_ar_city(){return f_ar_city;}
     bool get_booked(){return f_be_booked;}
     QString get_remain(){return f_remain;}
-    void dev_remain(){f_remain=QString::number(f_remain.toInt()-1);}
+
+
+    void dev_remain(){
+        f_remain=QString::number(f_remain.toInt()-1);
+        f_price=QString::number(f_base_price.toInt()+sought_num/10*50+tourists_num*10-market_competition*100);
+    }
     void add_booked(){++f_be_booked;}
 private:
     QString f_num;          //航班号

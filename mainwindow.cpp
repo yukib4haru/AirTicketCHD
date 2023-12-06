@@ -5,7 +5,6 @@
 #include<QMessageBox>
 #include<QTextStream>
 #include<QDebug>
-#include <QTableWidget>
 #include<QTableWidgetItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     loadData("D:\\study\\sxd\\AirTicketCHD\\jipiaoshuju.txt");
-
 
     ui->comboBox->insertItem(0,  "a");
     ui->comboBox->insertItem(1,  "b");
@@ -39,7 +37,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-//获得鼠标行号
 
 //读文件
 void MainWindow::loadData(const QString &filename)
@@ -114,17 +111,13 @@ void MainWindow::on_pushButton_2_clicked()
         model->setItem(i, 6, new QStandardItem(QString(data[i].f_money)));
 
     }
-    // 设置表格视图数据
-    tableView->setModel(model);
-    // 设置只读模型
-    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableView->setSortingEnabled(true); // 设置tableView的排序功能为启用
-    tableView->setSelectionBehavior(QAbstractItemView::SelectRows); // 设置tableView的选择模式为按行选择
-
-    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); // 设置tableView的水平表头的背景颜色为天蓝色
-
-    // 显示表格
-    tableView->show();
+    
+    tableView->setModel(model);     // 设置表格视图数据
+    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);      // 设置只读模型
+    tableView->setSortingEnabled(true);     // 设置tableView的排序功能为启用
+    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);   // 设置tableView的选择模式为按行选择
+    tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}");   // 设置tableView的水平表头的背景颜色为天蓝色
+    tableView->show();      // 显示表格
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -244,7 +237,6 @@ void MainWindow::on_comboBox_2_activated(int index)
         }
     }
 }
-
 void MainWindow::on_pushButton_4_clicked()
 {
 
