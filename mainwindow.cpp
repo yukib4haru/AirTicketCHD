@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\QT\\QT projects\\zuoye\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("D:\\QTProject\\GitHub\\AirTicketCHD\\jipiaoshuju.txt");
     ui->comboBox->insertItem(0,  "a");
     ui->comboBox->insertItem(1,  "b");
     ui->comboBox->insertItem(2,  "c");
