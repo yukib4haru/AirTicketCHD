@@ -27,7 +27,7 @@ SOURCES += main.cpp\
     User.cpp \
         mainwindow.cpp \
     jipiao.cpp \
-    yonghu.cpp
+    yonghu.cpp 
 
 HEADERS  += mainwindow.h \
     User.h \
@@ -39,3 +39,6 @@ FORMS    += mainwindow.ui \
 
 DISTFILES += \
     jipiaoshuju.txt
+
+RESOURCES += \
+    image.qrc

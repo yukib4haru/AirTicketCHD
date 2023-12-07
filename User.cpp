@@ -5,7 +5,7 @@
 #include <QList>
 #include <QRegularExpression>
 
-QFile file("D:\\QT\\QT Projects\\zuoye\\AirTicketCHD\\User.txt");
+QFile file("D:\\College\\GitHub\\AirTicketCHD\\User.txt");
 
 User::User(QWidget *parent) : QWidget(parent)
 {
@@ -18,7 +18,7 @@ User::User(QWidget *parent) : QWidget(parent)
  * 2 账号或密码错误
  * 3 不能以username或password来作为账号密码
 */
-int User::judgeUsernameAndpassword(UserInfo user)
+int User::judgeTel_numAndPassword(UserInfo user)
 {
     if(user.tel_num.isEmpty() || user.password.isEmpty())  return 1;
     else
@@ -74,7 +74,6 @@ int User::judgeUsernameAndpassword(UserInfo user)
         return 2;//
     }
 }
-
 /*
  * 0 注册成功
  * 1 账号或密码空
