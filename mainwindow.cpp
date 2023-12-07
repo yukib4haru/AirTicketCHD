@@ -13,7 +13,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
+    loadData("D:\\QTProject\\Github\\AirTicketCHD\\jipiaoshuju.txt");
     loadData("D:\\QT\\QT projects\\zuoye\\AirTicketCHD\\jipiaoshuju.txt");
+
 
     //出发地
     ui->comboBox->insertItem(0,  "所有");
@@ -123,12 +126,14 @@ void MainWindow::loadData(const QString &filename)
         return;
     }
     //读取数据
+
     QTextStream stream(&file);
     while(!stream.atEnd())
     {
         auto linedata=stream.readLine().split(" ");
         auto s=new jipiao(linedata[0],linedata[2],linedata[3],linedata[4],linedata[5],linedata[6],linedata[7],linedata[8]);
         m_jipiao.push_back(s);
+
     }
 }
 

@@ -1,7 +1,7 @@
 #include "yonghu.h"
 #include "ui_yonghu.h"
 #include "User.h"
-
+#include "mainwindow.h"
 
 yonghu::yonghu(QWidget *parent) :
     QWidget(parent),
@@ -9,19 +9,21 @@ yonghu::yonghu(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("Login");
+//    setWindowFlags(Qt::FramelessWindowHint | windowFlags());    //去窗口边框
+//    setAttribute(Qt::WA_TranslucentBackground);  //把窗口背景设置为透明
+    this->setGeometry(750,300,400,300);
+    this->setFixedSize(400,300);
+
 
     this->setAutoFillBackground(true);
     //获得widget的palette
     QPalette palette = this->palette();
     palette.setBrush(QPalette::Window,
-            QBrush(QPixmap(":/background.png").scaled(  // 缩放背景图.
-                this->size(),Qt::IgnoreAspectRatio,        //不限制原图片的长宽比
-                Qt::SmoothTransformation)));               // 使用平滑的缩放方式
+                     QBrush(QPixmap(":/background.png").scaled(  // 缩放背景图.
+                                                                 this->size(),Qt::IgnoreAspectRatio,        //不限制原图片的长宽比
+                                                                 Qt::SmoothTransformation)));               // 使用平滑的缩放方式
     this->setPalette(palette);
 
-
-    this->setGeometry(750,300,400,300);
-    this->setFixedSize(400,300);
 
     btnA = new QPushButton(this);
     btnA->setText("登录");// 设置按钮的文本
@@ -48,8 +50,18 @@ yonghu::yonghu(QWidget *parent) :
 
     tel_num_lineEdit = new QLineEdit(this);
     tel_num_lineEdit->setGeometry(160, 45, 170, 30);
+    tel_num_lineEdit->setPlaceholderText("tel_num");
+    QStringList tel_num_list;
+        tel_num_list<<"12345"<<"12314"<<"24526"<<"2789665";//构建账号补全列表
+    tel_number = new QCompleter(tel_num_list);
+    tel_num_lineEdit->setCompleter(tel_number);
+
     password_lineEdit = new QLineEdit(this);
     password_lineEdit->setGeometry(160, 105, 170, 30);
+    password_lineEdit->setPlaceholderText("password");
+    password_lineEdit->setEchoMode(QLineEdit::Password);//设置密码的显示模式
+
+
 
     //注册
     connect(this->btnB,&QPushButton::clicked,[this](){
@@ -94,7 +106,7 @@ yonghu::yonghu(QWidget *parent) :
             { QMessageBox::information(this,"信息","登录成功！");
                 this->close();
 
-                QMainWindow *w = new QMainWindow;
+                MainWindow *w = new MainWindow;
                 w->show();
 
                 break;}
