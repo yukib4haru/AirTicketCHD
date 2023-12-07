@@ -58,7 +58,7 @@ private:
     QString f_ar_city;      //目的地
     int f_be_bought;        //是否购买
 
-    bool f_true_bought;      //是否已付钱
+    int f_true_bought;      //是否已付钱
     //修正票价参数
     int sought_num;         //卖出票数
     int tourists_num;       //游客数量

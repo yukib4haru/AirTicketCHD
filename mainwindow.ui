@@ -79,7 +79,7 @@
            <string notr="true">font: 14pt &quot;黑体&quot;;</string>
           </property>
           <property name="text">
-           <string>1</string>
+           <string>航班信息</string>
           </property>
          </widget>
         </item>
@@ -211,9 +211,6 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="2">
-         <widget class="QLineEdit" name="lineEdit"/>
-        </item>
         <item row="5" column="1">
          <widget class="QLabel" name="label_8">
           <property name="styleSheet">
@@ -298,10 +295,12 @@
             <string>目的地</string>
            </property>
           </column>
+          <column>
+           <property name="text">
+            <string>付款状态</string>
+           </property>
+          </column>
          </widget>
-        </item>
-        <item row="5" column="2">
-         <widget class="QLineEdit" name="lineEdit_2"/>
         </item>
         <item row="2" column="3">
          <widget class="QLabel" name="label_9">
@@ -322,9 +321,6 @@
            <string>航班起飞时间：</string>
           </property>
          </widget>
-        </item>
-        <item row="5" column="4">
-         <widget class="QLineEdit" name="lineEdit_4"/>
         </item>
         <item row="2" column="1">
          <widget class="QLabel" name="label_7">
@@ -350,7 +346,7 @@
          </widget>
         </item>
         <item row="6" column="4">
-         <widget class="QPushButton" name="pushBotton_9">
+         <widget class="QPushButton" name="pushButton_9">
           <property name="text">
            <string>订单删除</string>
           </property>
@@ -362,6 +358,12 @@
            <string>订单支付</string>
           </property>
          </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLineEdit" name="lineEdit_2"/>
+        </item>
+        <item row="5" column="2">
+         <widget class="QLineEdit" name="lineEdit_4"/>
         </item>
        </layout>
       </widget>
