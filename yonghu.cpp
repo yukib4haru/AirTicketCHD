@@ -106,7 +106,7 @@ yonghu::yonghu(QWidget *parent) :
             { QMessageBox::information(this,"信息","登录成功！");
                 this->close();
 
-                QMainWindow *w = new QMainWindow;
+                MainWindow *w = new MainWindow;
                 w->show();
 
                 break;}

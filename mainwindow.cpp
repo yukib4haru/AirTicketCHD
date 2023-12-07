@@ -64,6 +64,14 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->comboBox_4->insertItem(j - 1, QString::number(i));
         j++;
     }
+
+    QFont font =  ui->looktable->horizontalHeader()->font();
+    font.setBold(true);
+    ui->looktable->horizontalHeader()->setFont(font);//加粗表头
+    ui->looktable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:lightblue;}"); //skyblue设置表头背景色
+    ui->looktable->setStyleSheet("QTableWidget::item {" "background-color: skyblue;""}""QHeaderView::section {""background-color: yellow;""}");
+    ui->looktable_2->setStyleSheet("QHeaderView::section {""background-color: skyblue;""}");
+
 }
 
 MainWindow::~MainWindow()
@@ -99,7 +107,7 @@ void MainWindow::refresh()
             s=m_jipiao[i];
             int row=ui->looktable->rowCount();
             ui->looktable->insertRow(row);
-            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));
+            ui->looktable->setItem(row,0,new QTableWidgetItem(s->get_num()));        
             ui->looktable->setItem(row,1,new QTableWidgetItem(s->get_price()));
             ui->looktable->setItem(row,2,new QTableWidgetItem(s->get_to_date()));
             ui->looktable->setItem(row,3,new QTableWidgetItem(s->get_ar_date()));
@@ -108,6 +116,8 @@ void MainWindow::refresh()
             ui->looktable->setItem(row,6,new QTableWidgetItem(s->get_type()));
             ui->looktable->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
             ui->looktable->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
+//            ui->looktable->setStyleSheet("QTableView::Item{selection-color:red}");
+
         }
     }
 }
@@ -132,7 +142,6 @@ void MainWindow::loadData(const QString &filename)
         auto linedata=stream.readLine().split(" ");
         auto s=new jipiao(linedata[0],linedata[2],linedata[3],linedata[4],linedata[5],linedata[6],linedata[7],linedata[8]);
         m_jipiao.push_back(s);
-
     }
 }
 
@@ -147,7 +156,6 @@ void MainWindow::on_pushButton_2_clicked()
 {
     //点击转换页面2
     ui->stackedWidget->setCurrentWidget(ui->page_2);
-
 
     //初始化数据
     user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
@@ -185,7 +193,6 @@ void MainWindow::on_pushButton_2_clicked()
     tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     tableView->setSortingEnabled(true); // 设置tableView的排序功能为启用
     tableView->setSelectionBehavior(QAbstractItemView::SelectRows); // 设置tableView的选择模式为按行选择
-
     tableView->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;}"); // 设置tableView的水平表头的背景颜色为天蓝色
 
     // 显示表格
@@ -199,6 +206,7 @@ void MainWindow::on_pushButton_3_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_3);
     ui->looktable_2->clearContents();
     ui->looktable_2->setRowCount(0);
+
     ui->M_money->setText(get_money());
     int n=f_jipiao.size();
     for(int i=0;i<n;i++)
