@@ -1,15 +1,17 @@
 #ifndef YONGHU_H
 #define YONGHU_H
 
-#include "mainwindow.h"
 
 #include <QWidget>
+#include <QMainWindow>
 #include <QPushButton>
 #include <QMessageBox>
 #include <QLineEdit>
 #include <QLabel>
 #include <QDebug>
 #include <QtSql/QSqlTableModel>
+#include <QCompleter>
+
 
 namespace Ui {
 class yonghu;
@@ -28,12 +30,14 @@ public:
 private:
     Ui::yonghu *ui;
 
+    QFrame *f_login;
     QPushButton *btnA;
     QPushButton *btnB;
     QLabel *tel_num;
     QLabel *password;
     QLineEdit *tel_num_lineEdit;
     QLineEdit *password_lineEdit;
+    QCompleter *tel_number;
 };
 
 #endif // YONGHU_H
