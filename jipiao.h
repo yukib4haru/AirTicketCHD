@@ -19,6 +19,8 @@ public:
     int get_bought(){return f_be_bought;}
     QString get_remain(){return f_remain;}
     int get_true_bought() {return f_true_bought;}
+    //值传递
+    void get_zhi(jipiao a);
 
     void true_bought()
     {
@@ -27,7 +29,14 @@ public:
 
     void unreal_bought()
     {
-        f_true_bought=-1;
+        if(f_true_bought==1)
+        {
+            f_true_bought=1;
+        }
+        else
+        {
+            f_true_bought=-1;
+        }
     }
 
     void be_bought()

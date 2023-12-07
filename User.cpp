@@ -6,7 +6,7 @@
 #include <QRegularExpression>
 
 //QFile file("D:\\QTProject\\GitHub\\AirTicketCHD\\User.txt");
-QFile file("D:\\College\\Github\\AirTicketCHD\\User.txt");
+QFile file("D:\\QT\\QT projects\\zuoye\\AirTicketCHD\\User.txt");
 
 User::User(QWidget *parent) : QWidget(parent)
 {

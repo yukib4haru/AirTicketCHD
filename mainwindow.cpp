@@ -13,8 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadData("D:\\College\\Github\\AirTicketCHD\\jipiaoshuju.txt");
-    loadData("D:\\QTProject\\Github\\AirTicketCHD\\jipiaoshuju.txt");
+
     loadData("D:\\QT\\QT projects\\zuoye\\AirTicketCHD\\jipiaoshuju.txt");
 
 
@@ -379,6 +378,10 @@ void MainWindow::on_pushButton_10_clicked()
         ui->M_money->setText(money);
         set_money(money);
         f_jipiao[m_row]->true_bought();
+        for(int i=0;i<n;++i)
+        {
+            qDebug()<<"s"<<f_jipiao[i]->get_true_bought();
+        }
     }
     ui->looktable_2->clearContents();
     ui->looktable_2->setRowCount(0);
@@ -424,7 +427,6 @@ void MainWindow::on_pushButton_10_clicked()
 
 void MainWindow::on_pushButton_9_clicked()
 {
-    int n=f_jipiao.size();
     int m_row = ui->looktable_2->currentRow();
     ui->looktable_2->clearContents();
     ui->looktable_2->setRowCount(0);
@@ -437,14 +439,26 @@ void MainWindow::on_pushButton_9_clicked()
     }
     else
     {
-        qDebug()<<"aa"<<m_row;
-        f_jipiao[m_row]->unreal_bought();
-        f_jipiao[m_row]->un_bought();
-        if (m_row >= 0 && m_row < f_jipiao.size()) {
-            f_jipiao.removeAt(m_row);
+        if(f_jipiao[m_row]->get_true_bought()==1)
+        {
+            QMessageBox msgBox;
+            msgBox.setText("已购买的机票不能删除");
+            msgBox.setWindowTitle("删除错误");
+            msgBox.exec();
         }
-        qDebug()<<"aaaaaaaaaaaaaaaaaa";
-        for(int i=0;i<n-1;i++)
+        else
+        {
+            f_jipiao[m_row]->unreal_bought();
+            f_jipiao[m_row]->un_bought();
+            if (m_row >= 0 && m_row < f_jipiao.size()) {
+                f_jipiao.removeAt(m_row);
+            }
+        }
+        qDebug()<<"111111111111111111111";
+        qDebug()<<"111111111111111111111";
+         int n=f_jipiao.size();
+        qDebug()<<"111111111111111111111";
+        for(int i=0;i<n;i++)
         {
             auto s=new jipiao;
             s=f_jipiao[i];
@@ -459,7 +473,15 @@ void MainWindow::on_pushButton_9_clicked()
             ui->looktable_2->setItem(row,6,new QTableWidgetItem(s->get_type()));
             ui->looktable_2->setItem(row,7,new QTableWidgetItem(s->get_take_city()));
             ui->looktable_2->setItem(row,8,new QTableWidgetItem(s->get_ar_city()));
-            ui->looktable_2->setItem(row,9,new QTableWidgetItem("否"));
+            if(f_jipiao[i]->get_true_bought()==1)
+            {
+                ui->looktable_2->setItem(row,9,new QTableWidgetItem("是"));
+            }
+            else
+            {
+                ui->looktable_2->setItem(row,9,new QTableWidgetItem("否"));
+            }
+
         }
     }
 }
@@ -499,14 +521,13 @@ void MainWindow::on_pushButton_6_clicked()
         int n=jp_xiabiao[row];
         qInfo()<<"n"<<n;
         m_jipiao[n]->be_bought();
-        qInfo()<<m_jipiao[n]->get_remain();
         auto s=new jipiao;
-        s=m_jipiao[n];
+        s->get_zhi(*m_jipiao[n]);
         f_jipiao.push_back(s);
     }
-    QMessageBox msgBox;
-    msgBox.setText("购票成功！");
-    msgBox.setWindowTitle("恭喜");
-    msgBox.exec();
-    jp_xiabiao.clear();
+   //QMessageBox msgBox;
+   //msgBox.setText("购票成功！");
+   //msgBox.setWindowTitle("恭喜");
+   //msgBox.exec();
+   jp_xiabiao.clear();
 }
