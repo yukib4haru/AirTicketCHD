@@ -16,26 +16,34 @@ public:
     QString get_type(){return f_type;}
     QString get_take_city(){return f_take_city;}
     QString get_ar_city(){return f_ar_city;}
-
-    int get_booked(){return f_be_booked;}
+    int get_bought(){return f_be_bought;}
     QString get_remain(){return f_remain;}
+    int get_true_bought() {return f_true_bought;}
 
-
-    void dev_remain()
+    void true_bought()
     {
-        f_remain=QString::number(f_remain.toInt()-1);
-        ++sought_num;
-        f_price=QString::number(f_base_price.toInt()+sought_num/10*50+tourists_num*10-market_competition*100);
-        f_be_booked++;
+        f_true_bought=1;
+    }
+
+    void unreal_bought()
+    {
+        f_true_bought=-1;
     }
 
     void be_bought()
     {
+        f_remain=QString::number(f_remain.toInt()-1);
+        f_price=QString::number(f_base_price.toInt()+sought_num/3*15+tourists_num*10-market_competition*100);
+        ++sought_num;
         f_be_bought++;
     }
-
-    void add_booked(){++f_be_booked;}
-
+    void un_bought()
+    {
+        f_remain=QString::number(f_remain.toInt()+1);
+        sought_num--;
+        f_be_bought--;
+        f_price=QString::number(f_base_price.toInt()+sought_num/3*15+tourists_num*10-market_competition*100);
+    }
 private:
     QString f_num;          //航班号
     QString f_base_price;   //基础票价
@@ -48,9 +56,9 @@ private:
     QString f_type;         //机型
     QString f_take_city;    //起飞城市
     QString f_ar_city;      //目的地
-    int f_be_booked;        //是否预订
     int f_be_bought;        //是否购买
 
+    bool f_true_bought;      //是否已付钱
     //修正票价参数
     int sought_num;         //卖出票数
     int tourists_num;       //游客数量

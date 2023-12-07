@@ -64,16 +64,30 @@ private slots:
 
     void on_comboBox_4_activated(int index);
 
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_9_clicked();
+
+    QString get_money(){return f_money;}
+
+    void set_money()
+    {
+        f_money=QString::number(114514);
+    }
+
+    void set_money(QString money)
+    {
+        f_money=money;
+    }
+
 private:
     Ui::MainWindow *ui;
     QList<jipiao*> m_jipiao;
     QTableView *tableView;
     QStandardItemModel* model;
-    QList<jipiao*>m_jipaio;
-    QList<int>jp_xiabiao;
     QList<jipiao*>f_jipiao;
-
-
+    QString f_money;
+    QList<int>jp_xiabiao;
 };
 
 #endif // MAINWINDOW_H

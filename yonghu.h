@@ -1,9 +1,9 @@
 #ifndef YONGHU_H
 #define YONGHU_H
 
-#include "mainwindow.h"
 
 #include <QWidget>
+#include <QMainWindow>
 #include <QPushButton>
 #include <QMessageBox>
 #include <QLineEdit>
