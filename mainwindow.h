@@ -64,13 +64,29 @@ private slots:
 
     void on_comboBox_4_activated(int index);
 
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_9_clicked();
+
+    QString get_money(){return f_money;}
+
+    void set_money()
+    {
+        f_money=QString::number(114514);
+    }
+
+    void set_money(QString money)
+    {
+        f_money=money;
+    }
+
 private:
     Ui::MainWindow *ui;
     QList<jipiao*> m_jipiao;
     QTableView *tableView;
     QStandardItemModel* model;
-    QList<jipiao*>m_jipaio;
-
+    QList<jipiao*>f_jipiao;
+    QString f_money;
     //初始化数据
     user data1 = {"1","東京","大阪","02.03.2004","03.03.2004","1554","114514"};
 

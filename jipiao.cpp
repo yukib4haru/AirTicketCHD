@@ -17,8 +17,9 @@ jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QStri
     f_type=type;
     f_take_city=take_city;
     f_ar_city=ar_city;
-    f_be_booked=0;
+    f_be_bought=0;
 
+    f_true_bought=0;
     f_base_price=QString::number(300+f_dis.toInt()/5/100*100);
 
     //修正参数
