@@ -1,7 +1,7 @@
 #ifndef YONGHU_H
 #define YONGHU_H
 
-#include "mainwindow.h"
+
 #include <QWidget>
 #include <QMainWindow>
 #include <QPushButton>
@@ -29,7 +29,6 @@ public:
 
 private:
     Ui::yonghu *ui;
-
     QFrame *f_login;
     QPushButton *btnA;
     QPushButton *btnB;

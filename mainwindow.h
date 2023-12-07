@@ -10,7 +10,7 @@
 #include <QStandardItemModel>
 #include <QInputDialog>
 #include <QLineEdit>
-
+#include"User.h"
 typedef struct
 {
  QString f_num;          //航班号
@@ -38,6 +38,8 @@ public:
 
     //加载数据
     void loadData(const QString& filename);
+    void loadData1(const QString& filename);
+
 
 private slots:
     void on_pushButton_clicked();
@@ -70,23 +72,24 @@ private slots:
 
     QString get_money(){return f_money;}
 
-    void set_money()
-    {
-        f_money=QString::number(114514);
-    }
 
     void set_money(QString money)
     {
         f_money=money;
     }
 
+    void on_tuikuan_button_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QList<jipiao*> m_jipiao;
     QTableView *tableView;
     QStandardItemModel* model;
     QList<jipiao*>f_jipiao;
+    QList<jipiao*>h_jipiao;
     QString f_money;
     QList<int>jp_xiabiao;
+
 };
 
 #endif // MAINWINDOW_H

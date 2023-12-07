@@ -7,7 +7,7 @@ jipiao::jipiao()
 
 }
 
-jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QString dis,QString type,QString take_city,QString ar_city)
+jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QString dis,QString type,QString take_city,QString ar_city,QString z)
 {
     f_num=num;
     f_to_date=to_date;
@@ -18,7 +18,7 @@ jipiao::jipiao(QString num,QString to_date,QString ar_date,QString to_time,QStri
     f_take_city=take_city;
     f_ar_city=ar_city;
     f_be_bought=0;
-
+    zhuangtai=z;
     f_true_bought=0;
     f_base_price=QString::number(300+f_dis.toInt()/5/100*100);
 

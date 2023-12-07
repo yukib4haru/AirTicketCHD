@@ -6,7 +6,7 @@ class jipiao
 {
 public:
     jipiao();
-    jipiao(QString num,QString to_date,QString ar_date,QString to_time,QString dis,QString type,QString take_city,QString ar_city);
+    jipiao(QString num,QString to_date,QString ar_date,QString to_time,QString dis,QString type,QString take_city,QString ar_city,  QString z);
     QString get_num(){return f_num;}
     QString get_price(){return f_price;}
     QString get_to_date(){return f_to_date;}
@@ -21,12 +21,25 @@ public:
     int get_true_bought() {return f_true_bought;}
     //值传递
     void get_zhi(jipiao a);
-
+    QString get_zhuangtai()
+    {
+        if(f_true_bought==1)
+        {
+            return "已付款";
+        }
+        else
+        {
+            return "未付款";
+        }
+    }
     void true_bought()
     {
         f_true_bought=1;
     }
-
+    void flase_bought()
+    {
+        f_true_bought=0;
+    }
     void unreal_bought()
     {
         if(f_true_bought==1)
@@ -46,6 +59,11 @@ public:
         ++sought_num;
         f_be_bought++;
     }
+    QString get_wd()
+    {
+        return zhuangtai;
+    }
+
     void un_bought()
     {
         f_remain=QString::number(f_remain.toInt()+1);
@@ -65,6 +83,7 @@ private:
     QString f_type;         //机型
     QString f_take_city;    //起飞城市
     QString f_ar_city;      //目的地
+    QString zhuangtai;
     int f_be_bought;        //是否购买
 
     int f_true_bought;      //是否已付钱
