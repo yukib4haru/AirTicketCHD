@@ -1,7 +1,7 @@
 #include "yonghu.h"
 #include "ui_yonghu.h"
 #include "User.h"
-
+#include "mainwindow.h"
 
 yonghu::yonghu(QWidget *parent) :
     QWidget(parent),

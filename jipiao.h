@@ -19,6 +19,8 @@ public:
     int get_bought(){return f_be_bought;}
     QString get_remain(){return f_remain;}
     int get_true_bought() {return f_true_bought;}
+    //值传递
+    void get_zhi(jipiao a);
 
     void true_bought()
     {
@@ -27,7 +29,14 @@ public:
 
     void unreal_bought()
     {
-        f_true_bought=-1;
+        if(f_true_bought==1)
+        {
+            f_true_bought=1;
+        }
+        else
+        {
+            f_true_bought=-1;
+        }
     }
 
     void be_bought()
@@ -58,7 +67,7 @@ private:
     QString f_ar_city;      //目的地
     int f_be_bought;        //是否购买
 
-    bool f_true_bought;      //是否已付钱
+    int f_true_bought;      //是否已付钱
     //修正票价参数
     int sought_num;         //卖出票数
     int tourists_num;       //游客数量

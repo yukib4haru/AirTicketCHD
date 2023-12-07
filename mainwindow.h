@@ -82,7 +82,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QList<jipiao*> m_jipiao;
     QTableView *tableView;
     QStandardItemModel* model;
     QList<jipiao*>f_jipiao;

@@ -13,14 +13,51 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#MainWindow{
+	border-image: url(:/background1.png);
+}</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
        <widget class="QPushButton" name="pushButton">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 255);
+background-color: rgb(170, 255, 255);
+font: 20pt &quot;幼圆&quot;;
+
+</string>
+        </property>
         <property name="text">
-         <string>1</string>
+         <string>购票中心</string>
         </property>
        </widget>
       </item>
@@ -31,7 +68,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>30</width>
           <height>20</height>
          </size>
         </property>
@@ -39,13 +76,55 @@
       </item>
       <item>
        <widget class="QPushButton" name="pushButton_2">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 255);
+background-color: rgb(170, 255, 255);
+font: 20pt &quot;幼圆&quot;;</string>
+        </property>
         <property name="text">
-         <string>2</string>
+         <string>用户中心</string>
         </property>
        </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>30</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 85, 255);
+background-color: rgb(170, 255, 255);
+font: 20pt &quot;幼圆&quot;;</string>
+        </property>
+        <property name="text">
+         <string>订单中心</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -57,33 +136,70 @@
         </property>
        </spacer>
       </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="text">
-         <string>3</string>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
+       <number>3</number>
+       <number>0</number>
        <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout">
         <item row="6" column="0">
+         <widget class="QComboBox" name="comboBox">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="2">
+         <widget class="QComboBox" name="comboBox_3">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>                             月</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="5">
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">font: 14pt &quot;黑体&quot;;</string>
+          </property>
          <widget class="QComboBox" name="comboBox"/>
         </item>
         <item row="13" column="0">
          <widget class="QPushButton" name="pushButton_6">
           <property name="text">
+           <string>航班信息</string>
            <string>购票</string>
           </property>
          </widget>
         </item>
-        <item row="12" column="0" colspan="3">
+        <item row="8" column="0">
+         <widget class="QComboBox" name="comboBox_2">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>30</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0" colspan="6">
          <widget class="QTableWidget" name="looktable">
           <column>
            <property name="text">
@@ -152,6 +268,7 @@
           </property>
          </widget>
         </item>
+
         <item row="0" column="0" rowspan="5">
          <widget class="QLabel" name="label">
           <property name="styleSheet">
@@ -176,6 +293,25 @@
          <widget class="QLabel" name="label_7">
           <property name="text">
            <string>日</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="3">
+         <widget class="QLabel" name="label_7">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>           日</string>
           </property>
          </widget>
         </item>
@@ -210,9 +346,6 @@
            <string/>
           </property>
          </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QLineEdit" name="lineEdit"/>
         </item>
         <item row="5" column="1">
          <widget class="QLabel" name="label_8">
@@ -298,10 +431,12 @@
             <string>目的地</string>
            </property>
           </column>
+          <column>
+           <property name="text">
+            <string>付款状态</string>
+           </property>
+          </column>
          </widget>
-        </item>
-        <item row="5" column="2">
-         <widget class="QLineEdit" name="lineEdit_2"/>
         </item>
         <item row="2" column="3">
          <widget class="QLabel" name="label_9">
@@ -322,9 +457,6 @@
            <string>航班起飞时间：</string>
           </property>
          </widget>
-        </item>
-        <item row="5" column="4">
-         <widget class="QLineEdit" name="lineEdit_4"/>
         </item>
         <item row="2" column="1">
          <widget class="QLabel" name="label_7">
@@ -350,7 +482,7 @@
          </widget>
         </item>
         <item row="6" column="4">
-         <widget class="QPushButton" name="pushBotton_9">
+         <widget class="QPushButton" name="pushButton_9">
           <property name="text">
            <string>订单删除</string>
           </property>
@@ -363,9 +495,28 @@
           </property>
          </widget>
         </item>
+        <item row="2" column="2">
+         <widget class="QLineEdit" name="lineEdit_2"/>
+        </item>
+        <item row="5" column="2">
+         <widget class="QLineEdit" name="lineEdit_4"/>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="page_4">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="huanlabel">
+          <property name="styleSheet">
+           <string notr="true">font: 72pt &quot;华文彩云&quot;;
+color: rgb(0, 170, 255);</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00aaff;&quot;&gt;欢迎使用&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#00aaff;&quot;&gt;航天机票管理系统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
        <widget class="QTextBrowser" name="textBrowser">
         <property name="geometry">
          <rect>
@@ -386,6 +537,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'SimSun'; font-size:22pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;欢迎使用航天机票系统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
+
       </widget>
      </widget>
     </item>
