@@ -1,7 +1,7 @@
 #include "yonghu.h"
 #include "ui_yonghu.h"
 #include "User.h"
-
+#include "mainwindow.h"
 
 yonghu::yonghu(QWidget *parent) :
     QWidget(parent),
@@ -106,7 +106,7 @@ yonghu::yonghu(QWidget *parent) :
             { QMessageBox::information(this,"信息","登录成功！");
                 this->close();
 
-                QMainWindow *w = new QMainWindow;
+                MainWindow *w = new MainWindow;
                 w->show();
 
                 break;}
